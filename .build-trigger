@@ -1,0 +1,3 @@
+CI build trigger file
+
+This file is used to trigger the GitHub Actions workflow to build and publish the site.
