@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useLanguage } from '../context/LanguageContext'
-import { products } from '../translations'
+import { getLocalizedProducts } from '../translations'
 import { ProductImage, PageHero } from '../components/UI'
 import { Link } from 'react-router-dom'
 
@@ -8,11 +8,17 @@ export default function Products() {
   const { t, language } = useLanguage()
   const [filter, setFilter] = useState('all')
 
+  const products = getLocalizedProducts(language)
   const allLabel = { sq: 'Të gjitha', mk: 'Сите', en: 'All' }[language] || 'All'
-  const categories = ['all', ...Array.from(new Set(products.map((product) => product.category).filter(Boolean)))]
+  const madeLabel = { sq: 'Prodhuar në Tetovë', mk: 'Произведено во Тетово', en: 'Made in Tetovo' }[language] || 'Made in Tetovo'
+  const categories = [
+    { key: 'all', label: allLabel },
+    ...Array.from(new Map(products.map((product) => [product.categoryKey, product.category])).entries())
+      .map(([key, label]) => ({ key, label })),
+  ]
   const visibleProducts = filter === 'all'
     ? products
-    : products.filter((product) => product.category === filter)
+    : products.filter((product) => product.categoryKey === filter)
 
   return (
     <>
@@ -24,14 +30,14 @@ export default function Products() {
 
       <section className="section products" style={{ paddingTop: '40px' }}>
         <div className="product-filters">
-          {categories.map((c) => (
+          {categories.map((category) => (
             <button 
-              key={c}
-              onClick={()=>setFilter(c)}
-              className={filter === c ? 'active':''}
+              key={category.key}
+              onClick={()=>setFilter(category.key)}
+              className={filter === category.key ? 'active':''}
               type="button"
             >
-              {c === 'all' ? allLabel : c}
+              {category.label}
             </button>
           ))}
         </div>
@@ -53,7 +59,7 @@ export default function Products() {
                 )}
                 <div className="product-meta">
                   <span className="product-price">—</span>
-                  <span className="product-tag">Made in Tetovo</span>
+                  <span className="product-tag">{madeLabel}</span>
                 </div>
                 <div className="product-actions">
                   <Link to={`/products/${product.slug}`} className="product-cta">{t.productCta}</Link>

@@ -1,10 +1,33 @@
 import { useLanguage } from '../context/LanguageContext'
 import { products, stats } from '../translations'
-import { PageHero, SectionEyebrow, assetUrl } from '../components/UI'
+import { PageHero, SectionEyebrow } from '../components/UI'
+import { assetUrl } from '../utils/assets'
 import { Link } from 'react-router-dom'
+
+const labels = {
+  sq: {
+    showroom: 'Showroom',
+    craftsmanship: 'Mjeshtëri',
+    brandAlt: 'Brendi Feder Bau',
+    mattressAlt: 'Dyshek Feder Bau Dreamer',
+  },
+  mk: {
+    showroom: 'Салон',
+    craftsmanship: 'Изработка',
+    brandAlt: 'Бренд Feder Bau',
+    mattressAlt: 'Feder Bau Dreamer душек',
+  },
+  en: {
+    showroom: 'Showroom',
+    craftsmanship: 'Craftsmanship',
+    brandAlt: 'Feder Bau brand',
+    mattressAlt: 'Feder Bau Dreamer mattress',
+  },
+}
 
 export default function About() {
   const { t, language } = useLanguage()
+  const copy = labels[language] || labels.en
 
   return (
     <>
@@ -16,10 +39,10 @@ export default function About() {
 
       <section className="section about">
         <div className="about-media">
-          <img className="about-photo" src={assetUrl('assets/brand/feder-bau-brand-photo.jpg')} alt="Feder Bau brand" loading="lazy" />
+          <img className="about-photo" src={assetUrl('assets/brand/feder-bau-brand-photo.jpg')} alt={copy.brandAlt} loading="lazy" />
         </div>
         <div className="about-copy">
-          <SectionEyebrow>Showroom</SectionEyebrow>
+          <SectionEyebrow>{copy.showroom}</SectionEyebrow>
           <h2>{t.locationTitle}</h2>
           <p>{t.locationText}</p>
           <div className="stats-row">
@@ -54,17 +77,17 @@ export default function About() {
 
       <section className="section about">
         <div className="about-copy">
-          <SectionEyebrow>Craftsmanship</SectionEyebrow>
+          <SectionEyebrow>{copy.craftsmanship}</SectionEyebrow>
           <h2>{t.heroSlides[1].title}</h2>
           <p>{t.heroSlides[1].text}</p>
           <p style={{marginTop: '18px'}}>{t.aboutText}</p>
           <div style={{marginTop:'28px', display:'flex', gap:'14px', flexWrap:'wrap'}}>
-            <Link to="/products" className="button primary">{t.heroSlides[0].cta}</Link>
+            <Link to="/collections" className="button primary">{t.heroSlides[0].cta}</Link>
             <Link to="/contact" className="button">{t.contactTitle}</Link>
           </div>
         </div>
         <div className="about-media">
-          <img className="about-photo" src={assetUrl(products[5].image)} alt="Feder Bau Dreamer mattress" loading="lazy" />
+          <img className="about-photo" src={assetUrl(products[5].image)} alt={copy.mattressAlt} loading="lazy" />
         </div>
       </section>
     </>

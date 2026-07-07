@@ -1,10 +1,13 @@
 import { useLanguage } from '../context/LanguageContext'
-import { collections, products } from '../translations'
-import { PageHero, SectionEyebrow, assetUrl } from '../components/UI'
+import { getLocalizedCollections, getLocalizedProducts } from '../translations'
+import { PageHero, SectionEyebrow } from '../components/UI'
+import { assetUrl } from '../utils/assets'
 import { Link } from 'react-router-dom'
 
 export default function Collections() {
-  const { t } = useLanguage()
+  const { t, language } = useLanguage()
+  const collections = getLocalizedCollections(language)
+  const products = getLocalizedProducts(language)
 
   return (
     <>

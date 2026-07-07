@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useLanguage } from '../context/LanguageContext'
-import { products, collections, stats } from '../translations'
-import { ProductImage, SectionEyebrow, assetUrl } from '../components/UI'
+import { getLocalizedProducts, getLocalizedCollections, stats } from '../translations'
+import { ProductImage, SectionEyebrow } from '../components/UI'
+import { assetUrl } from '../utils/assets'
 
 const heroImages = [
   'assets/products/dreamer.jpg',
@@ -10,7 +11,9 @@ const heroImages = [
   'assets/products/comfort.jpg',
 ]
 
-function HeroCarousel({ slides }) {
+const heroTargets = ['/collections', '/about', '/products']
+
+function HeroCarousel({ slides, imageAlt }) {
   const [active, setActive] = useState(0)
 
   useEffect(() => {
@@ -29,14 +32,14 @@ function HeroCarousel({ slides }) {
         {slides.map((slide, index) => (
           <div className="hero-slide" key={index} aria-hidden={active !== index}>
             <div className="hero-slide-bg">
-              <img src={assetUrl(heroImages[index % heroImages.length])} alt="Feder Bau mattress" />
+              <img src={assetUrl(heroImages[index % heroImages.length])} alt={imageAlt} />
             </div>
             <div className="hero-slide-overlay" />
             <div className="hero-slide-content">
               <SectionEyebrow>{slide.eyebrow}</SectionEyebrow>
               <h1>{slide.title}</h1>
               <p>{slide.text}</p>
-              <Link className="button primary" to="/products">
+              <Link className="button primary" to={heroTargets[index] || '/products'}>
                 {slide.cta}
               </Link>
             </div>
@@ -72,11 +75,14 @@ function HeroCarousel({ slides }) {
 
 export default function Home() {
   const { t, language } = useLanguage()
+  const products = getLocalizedProducts(language)
+  const collections = getLocalizedCollections(language)
   const featured = products.slice(0, 3)
+  const brandAlt = { sq: 'Brendi Feder Bau', mk: 'Бренд Feder Bau', en: 'Feder Bau brand' }[language]
 
   return (
     <>
-      <HeroCarousel slides={t.heroSlides} />
+      <HeroCarousel slides={t.heroSlides} imageAlt={{ sq: 'Dyshek Feder Bau', mk: 'Feder Bau душек', en: 'Feder Bau mattress' }[language]} />
 
       <section className="section categories">
         <SectionEyebrow>Feder Bau</SectionEyebrow>
@@ -122,7 +128,7 @@ export default function Home() {
 
       <section className="section about" id="about">
         <div className="about-media">
-          <img className="about-photo" src={assetUrl('assets/brand/feder-bau-brand-photo.jpg')} alt="Feder Bau brand" loading="lazy" />
+          <img className="about-photo" src={assetUrl('assets/brand/feder-bau-brand-photo.jpg')} alt={brandAlt} loading="lazy" />
         </div>
         <div className="about-copy">
           <SectionEyebrow>1997</SectionEyebrow>

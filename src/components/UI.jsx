@@ -1,8 +1,4 @@
-export function assetUrl(path) {
-  if (!path) return ''
-  if (/^https?:\/\//.test(path) || path.startsWith('data:')) return path
-  return `${import.meta.env.BASE_URL}${path.replace(/^\//, '')}`
-}
+import { assetUrl } from '../utils/assets'
 
 export function PlaceholderBox({ label, ratio = '4 / 3', className = '' }) {
   return (
@@ -20,8 +16,8 @@ export function ProductImage({ product, ratio = '4 / 3', className = '' }) {
 
   return (
     <figure className={`product-image ${className}`} style={{ aspectRatio: ratio }}>
-      <img src={assetUrl(product.image)} alt={`${product.name} Feder Bau mattress`} loading="lazy" />
-      {product.height && <figcaption>{product.height} height</figcaption>}
+      <img src={assetUrl(product.image)} alt={product.alt || `${product.name} Feder Bau`} loading="lazy" />
+      {product.height && <figcaption>{product.height}</figcaption>}
     </figure>
   )
 }

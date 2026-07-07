@@ -151,84 +151,247 @@ export const languages = {
   },
 };
 
+export const categoryLabels = {
+  spring: { en: 'Spring Mattresses', sq: 'Dyshekë me susta', mk: 'Душеци со пружини' },
+  foam: { en: 'Foam Mattresses', sq: 'Dyshekë me shkumë', mk: 'Душеци со пена' },
+  memory: { en: 'Memory Foam', sq: 'Memory foam', mk: 'Memory foam' },
+  orthopedic: { en: 'Orthopedic', sq: 'Ortopedikë', mk: 'Ортопедски' },
+  premium: { en: 'Premium', sq: 'Premium', mk: 'Премиум' },
+};
+
+const tr = (value, language = 'en') => {
+  if (!value || typeof value !== 'object') return value
+  return value[language] || value.en || Object.values(value)[0]
+}
+
 export const products = [
   {
     name: 'Classic',
     slug: 'classic',
-    detail: 'Everyday spring mattress with breathable jacquard fabric and reliable Bonell Hercul spring support.',
-    description: 'Classic is a practical Feder Bau mattress created for everyday comfort and dependable support. Its jacquard and breathable fabric cover helps keep the sleeping surface fresh, while synthetic cotton, hard felt, Polio Soft foam, and Bonell Hercul springs create a stable feel for daily use. It is a simple, reliable option for bedrooms, guest rooms, and customers looking for strong value.',
     image: 'assets/products/classic.jpg',
     height: '20 cm',
-    category: 'Spring Mattresses',
-    materials: ['Jacquard fabric', 'Highly breathable fabric', 'Synthetic cotton', 'One layer hard felt', 'Polio Soft foam', 'Bonell Hercul Spring'],
+    categoryKey: 'spring',
+    price: null,
+    detail: {
+      en: 'Everyday spring mattress with breathable jacquard fabric and reliable Bonell Hercul spring support.',
+      sq: 'Dyshek i përditshëm me susta, pëlhurë jacquard që merr frymë dhe mbështetje të qëndrueshme Bonell Hercul.',
+      mk: 'Секојдневен душек со пружини, дишлива жакард ткаенина и сигурна Bonell Hercul поддршка.',
+    },
+    description: {
+      en: 'Classic is a practical Feder Bau mattress created for everyday comfort and dependable support. Its jacquard and breathable fabric cover helps keep the sleeping surface fresh, while synthetic cotton, hard felt, Polio Soft foam, and Bonell Hercul springs create a stable feel for daily use. It is a simple, reliable option for bedrooms, guest rooms, and customers looking for strong value.',
+      sq: 'Classic është dyshek praktik Feder Bau i krijuar për rehati të përditshme dhe mbështetje të besueshme. Mbulesa me pëlhurë jacquard dhe material që merr frymë ndihmon në freskinë e sipërfaqes së gjumit, ndërsa pambuku sintetik, felt-i i fortë, shkuma Polio Soft dhe sustat Bonell Hercul krijojnë ndjesi stabile për përdorim të përditshëm. Është zgjedhje e thjeshtë dhe e besueshme për dhoma gjumi, dhoma mysafirësh dhe klientë që kërkojnë vlerë të mirë.',
+      mk: 'Classic е практичен Feder Bau душек создаден за секојдневна удобност и сигурна поддршка. Жакард ткаенината и дишливата навлака помагаат површината за спиење да остане свежа, додека синтетичкиот памук, тврдиот филц, Polio Soft пената и Bonell Hercul пружините создаваат стабилно чувство за секојдневна употреба. Тој е едноставна и сигурна опција за спални соби, гостински соби и купувачи кои бараат добра вредност.',
+    },
+    materials: [
+      { en: 'Jacquard fabric', sq: 'Pëlhurë jacquard', mk: 'Жакард ткаенина' },
+      { en: 'Highly breathable fabric', sq: 'Pëlhurë shumë e ajrosshme', mk: 'Високо дишлива ткаенина' },
+      { en: 'Synthetic cotton', sq: 'Pambuk sintetik', mk: 'Синтетички памук' },
+      { en: 'One layer hard felt', sq: 'Një shtresë felt i fortë', mk: 'Еден слој тврд филц' },
+      { en: 'Polio Soft foam', sq: 'Shkumë Polio Soft', mk: 'Polio Soft пена' },
+      { en: 'Bonell Hercul Spring', sq: 'Susta Bonell Hercul', mk: 'Bonell Hercul пружини' },
+    ],
   },
   {
     name: 'Monocell Aloe',
     slug: 'monocell-aloe',
-    detail: 'AloeVera microfiber mattress with breathable comfort layers and a clean foam construction.',
-    description: 'Monocell Aloe is a foam mattress focused on a clean, breathable sleep surface. The AloeVera polyester microfiber fabric gives the model a fresh and soft touch, supported by synthetic cotton and Polio Soft foam layers. Its 18 cm profile makes it a simple, lightweight choice for everyday comfort.',
     image: 'assets/products/monocell-aloe.jpg',
     height: '18 cm',
-    category: 'Foam Mattresses',
-    materials: ['AloeVera polyester microfiber fabric', 'Highly breathable fabric', 'Synthetic cotton', 'Polio Soft foam'],
+    categoryKey: 'foam',
+    price: null,
+    detail: {
+      en: 'AloeVera microfiber mattress with breathable comfort layers and a clean foam construction.',
+      sq: 'Dyshek me mikrofibër AloeVera, shtresa komforti të ajrosshme dhe konstruksion të pastër me shkumë.',
+      mk: 'Душек со AloeVera микрофибер, дишливи комфорни слоеви и чиста конструкција од пена.',
+    },
+    description: {
+      en: 'Monocell Aloe is a foam mattress focused on a clean, breathable sleep surface. The AloeVera polyester microfiber fabric gives the model a fresh and soft touch, supported by synthetic cotton and Polio Soft foam layers. Its 18 cm profile makes it a simple, lightweight choice for everyday comfort.',
+      sq: 'Monocell Aloe është dyshek me shkumë i fokusuar në një sipërfaqe gjumi të pastër dhe të ajrosshme. Pëlhura mikrofibër poliestër AloeVera i jep modelit ndjesi të freskët dhe të butë, të mbështetur nga pambuku sintetik dhe shtresat e shkumës Polio Soft. Profili 18 cm e bën zgjedhje të thjeshtë dhe të lehtë për rehati të përditshme.',
+      mk: 'Monocell Aloe е душек од пена фокусиран на чиста и дишлива површина за спиење. AloeVera полиестерската микрофибер ткаенина му дава свеж и мек допир, поддржан од синтетички памук и слоеви Polio Soft пена. Профилот од 18 cm го прави едноставен и лесен избор за секојдневна удобност.',
+    },
+    materials: [
+      { en: 'AloeVera polyester microfiber fabric', sq: 'Pëlhurë mikrofibër poliestër AloeVera', mk: 'AloeVera полиестерска микрофибер ткаенина' },
+      { en: 'Highly breathable fabric', sq: 'Pëlhurë shumë e ajrosshme', mk: 'Високо дишлива ткаенина' },
+      { en: 'Synthetic cotton', sq: 'Pambuk sintetik', mk: 'Синтетички памук' },
+      { en: 'Polio Soft foam', sq: 'Shkumë Polio Soft', mk: 'Polio Soft пена' },
+    ],
   },
   {
     name: 'Viscoline',
     slug: 'viscoline',
-    detail: 'Premium 28 cm mattress with antistress fabric, memory foam, resilient foam, and organic cotton.',
-    description: 'Viscoline is one of the more advanced Feder Bau models, designed for customers who want a richer comfort build. It combines antistress viscose and polyester microfiber fabric with breathable layers, high-resilience foam, Polio Soft foam, flexible hard foam, organic cotton, and Myform memory foam. The result is a taller 28 cm mattress with adaptive comfort and strong support.',
     image: 'assets/products/viscoline.jpg',
     height: '28 cm',
-    category: 'Memory Foam',
-    materials: ['Viscose and polyester microfiber fabric ANTISTRESS', 'Highly breathable fabric', 'High Resilience foam', 'Polio Soft foam', 'Polio flexible hard foam', 'Organic cotton', 'Myform Memori foam', 'Jackuard fabric'],
+    categoryKey: 'memory',
+    price: null,
+    detail: {
+      en: 'Premium 28 cm mattress with antistress fabric, memory foam, resilient foam, and organic cotton.',
+      sq: 'Dyshek premium 28 cm me pëlhurë antistres, memory foam, shkumë rezistente dhe pambuk organik.',
+      mk: 'Премиум душек од 28 cm со антистрес ткаенина, memory foam, еластична пена и органски памук.',
+    },
+    description: {
+      en: 'Viscoline is one of the more advanced Feder Bau models, designed for customers who want a richer comfort build. It combines antistress viscose and polyester microfiber fabric with breathable layers, high-resilience foam, Polio Soft foam, flexible hard foam, organic cotton, and Myform memory foam. The result is a taller 28 cm mattress with adaptive comfort and strong support.',
+      sq: 'Viscoline është një nga modelet më të avancuara të Feder Bau, i krijuar për klientë që duan ndërtim më të pasur komforti. Kombinon pëlhurë mikrofibër viskoze dhe poliestër antistres me shtresa të ajrosshme, shkumë me reziliencë të lartë, shkumë Polio Soft, shkumë fleksibile të fortë, pambuk organik dhe Myform memory foam. Rezultati është një dyshek 28 cm me rehati adaptive dhe mbështetje të fortë.',
+      mk: 'Viscoline е еден од понапредните модели на Feder Bau, создаден за купувачи кои сакаат побогата комфорна конструкција. Комбинира антистрес вискозна и полиестерска микрофибер ткаенина со дишливи слоеви, високоеластична пена, Polio Soft пена, флексибилна тврда пена, органски памук и Myform memory foam. Резултатот е повисок душек од 28 cm со адаптивна удобност и силна поддршка.',
+    },
+    materials: [
+      { en: 'Viscose and polyester microfiber fabric ANTISTRESS', sq: 'Pëlhurë mikrofibër viskoze dhe poliestër ANTISTRES', mk: 'Вискозна и полиестерска микрофибер ткаенина АНТИСТРЕС' },
+      { en: 'Highly breathable fabric', sq: 'Pëlhurë shumë e ajrosshme', mk: 'Високо дишлива ткаенина' },
+      { en: 'High Resilience foam', sq: 'Shkumë me reziliencë të lartë', mk: 'Високоеластична пена' },
+      { en: 'Polio Soft foam', sq: 'Shkumë Polio Soft', mk: 'Polio Soft пена' },
+      { en: 'Polio flexible hard foam', sq: 'Shkumë fleksibile e fortë Polio', mk: 'Polio флексибилна тврда пена' },
+      { en: 'Organic cotton', sq: 'Pambuk organik', mk: 'Органски памук' },
+      { en: 'Myform Memori foam', sq: 'Shkumë Myform Memori', mk: 'Myform Memori пена' },
+      { en: 'Jacquard fabric', sq: 'Pëlhurë jacquard', mk: 'Жакард ткаенина' },
+    ],
   },
   {
     name: 'Ortopedik',
     slug: 'ortopedik',
-    detail: 'Orthopedic spring mattress with twin hard-felt layers for firmer support and breathable comfort.',
-    description: 'Ortopedik is built for customers who prefer firmer, more structured support. Its jacquard breathable fabric, synthetic cotton, Polio Soft foam, twin hard-felt layers, and Bonell Hercul spring system create a stable mattress construction. The 22 cm height offers a balanced orthopedic feel for everyday sleeping support.',
     image: 'assets/products/ortopedik.jpg',
     height: '22 cm',
-    category: 'Orthopedic',
-    materials: ['Jacquard fabric', 'Highly breathable fabric', 'Synthetic cotton', 'Twin layers hard felt', 'Polio Soft foam', 'Bonell Hercul Spring'],
+    categoryKey: 'orthopedic',
+    price: null,
+    detail: {
+      en: 'Orthopedic spring mattress with twin hard-felt layers for firmer support and breathable comfort.',
+      sq: 'Dyshek ortopedik me susta dhe dy shtresa felt të fortë për mbështetje më të fortë dhe rehati të ajrosshme.',
+      mk: 'Ортопедски душек со пружини и двојни слоеви тврд филц за поцврста поддршка и дишлива удобност.',
+    },
+    description: {
+      en: 'Ortopedik is built for customers who prefer firmer, more structured support. Its jacquard breathable fabric, synthetic cotton, Polio Soft foam, twin hard-felt layers, and Bonell Hercul spring system create a stable mattress construction. The 22 cm height offers a balanced orthopedic feel for everyday sleeping support.',
+      sq: 'Ortopedik është ndërtuar për klientë që preferojnë mbështetje më të fortë dhe më të strukturuar. Pëlhura jacquard e ajrosshme, pambuku sintetik, shkuma Polio Soft, dy shtresat e felt-it të fortë dhe sistemi i sustave Bonell Hercul krijojnë konstruksion stabil. Lartësia 22 cm ofron ndjesi të balancuar ortopedike për mbështetje të përditshme gjatë gjumit.',
+      mk: 'Ortopedik е направен за купувачи кои претпочитаат поцврста и поструктурирана поддршка. Дишливата жакард ткаенина, синтетичкиот памук, Polio Soft пената, двојните слоеви тврд филц и Bonell Hercul пружинскиот систем создаваат стабилна конструкција. Висината од 22 cm нуди балансирано ортопедско чувство за секојдневна поддршка при спиење.',
+    },
+    materials: [
+      { en: 'Jacquard fabric', sq: 'Pëlhurë jacquard', mk: 'Жакард ткаенина' },
+      { en: 'Highly breathable fabric', sq: 'Pëlhurë shumë e ajrosshme', mk: 'Високо дишлива ткаенина' },
+      { en: 'Synthetic cotton', sq: 'Pambuk sintetik', mk: 'Синтетички памук' },
+      { en: 'Twin layers hard felt', sq: 'Dy shtresa felt i fortë', mk: 'Двојни слоеви тврд филц' },
+      { en: 'Polio Soft foam', sq: 'Shkumë Polio Soft', mk: 'Polio Soft пена' },
+      { en: 'Bonell Hercul Spring', sq: 'Susta Bonell Hercul', mk: 'Bonell Hercul пружини' },
+    ],
   },
   {
     name: 'Comfort',
     slug: 'comfort',
-    detail: 'Tall comfort mattress combining Bonell Hercul springs, multi inner filling foam, and organic cotton.',
-    description: 'Comfort is a 28 cm mattress designed to deliver a fuller, more cushioned sleeping experience. It uses Easy Comfort polyester microfiber fabric, breathable layers, organic cotton, Polio Soft foam, flexible hard foam, twin hard-felt layers, multi inner filling foam, and Bonell Hercul springs. This combination gives the model a supportive spring base with added comfort layers on top.',
     image: 'assets/products/comfort.jpg',
     height: '28 cm',
-    category: 'Spring Mattresses',
-    materials: ['Easy Comfort polyester microfiber fabric', 'Highly breathable fabric', 'Polio flexible hard foam', 'Bonell Hercul Spring', 'Organic cotton', 'Polio Soft foam', 'Twin layers hard felt', 'Multi inner filling foam'],
+    categoryKey: 'spring',
+    price: null,
+    detail: {
+      en: 'Tall comfort mattress combining Bonell Hercul springs, multi inner filling foam, and organic cotton.',
+      sq: 'Dyshek komforti i lartë që kombinon sustat Bonell Hercul, shkumë mbushëse të brendshme dhe pambuk organik.',
+      mk: 'Висок комфорен душек што комбинира Bonell Hercul пружини, внатрешна полначка пена и органски памук.',
+    },
+    description: {
+      en: 'Comfort is a 28 cm mattress designed to deliver a fuller, more cushioned sleeping experience. It uses Easy Comfort polyester microfiber fabric, breathable layers, organic cotton, Polio Soft foam, flexible hard foam, twin hard-felt layers, multi inner filling foam, and Bonell Hercul springs. This combination gives the model a supportive spring base with added comfort layers on top.',
+      sq: 'Comfort është dyshek 28 cm i krijuar për të dhënë përvojë gjumi më të plotë dhe më të butë. Përdor pëlhurë mikrofibër poliestër Easy Comfort, shtresa të ajrosshme, pambuk organik, shkumë Polio Soft, shkumë fleksibile të fortë, dy shtresa felt të fortë, shkumë mbushëse të brendshme dhe susta Bonell Hercul. Ky kombinim i jep modelit bazë mbështetëse me susta dhe shtresa shtesë komforti sipër.',
+      mk: 'Comfort е душек од 28 cm создаден да обезбеди пополно и помеко искуство на спиење. Користи Easy Comfort полиестерска микрофибер ткаенина, дишливи слоеви, органски памук, Polio Soft пена, флексибилна тврда пена, двојни слоеви тврд филц, внатрешна полначка пена и Bonell Hercul пружини. Оваа комбинација му дава на моделот поддржувачка пружинска основа со дополнителни комфорни слоеви одозгора.',
+    },
+    materials: [
+      { en: 'Easy Comfort polyester microfiber fabric', sq: 'Pëlhurë mikrofibër poliestër Easy Comfort', mk: 'Easy Comfort полиестерска микрофибер ткаенина' },
+      { en: 'Highly breathable fabric', sq: 'Pëlhurë shumë e ajrosshme', mk: 'Високо дишлива ткаенина' },
+      { en: 'Polio flexible hard foam', sq: 'Shkumë fleksibile e fortë Polio', mk: 'Polio флексибилна тврда пена' },
+      { en: 'Bonell Hercul Spring', sq: 'Susta Bonell Hercul', mk: 'Bonell Hercul пружини' },
+      { en: 'Organic cotton', sq: 'Pambuk organik', mk: 'Органски памук' },
+      { en: 'Polio Soft foam', sq: 'Shkumë Polio Soft', mk: 'Polio Soft пена' },
+      { en: 'Twin layers hard felt', sq: 'Dy shtresa felt i fortë', mk: 'Двојни слоеви тврд филц' },
+      { en: 'Multi inner filling foam', sq: 'Shkumë mbushëse e brendshme', mk: 'Внатрешна полначка пена' },
+    ],
   },
   {
     name: 'Dreamer',
     slug: 'dreamer',
-    detail: 'Premium pocket-spring mattress with Silver Care microfiber fabric and dual technology support.',
-    description: 'Dreamer is a premium Feder Bau mattress with a 27 cm profile and Dual Technology Pocket Spring support. The Silver Care and polyester microfiber fabric pairs with breathable layers, organic cotton, Polio Soft foam, and flexible hard foam to create a refined balance of comfort and targeted support. It is suited for customers looking for a more advanced spring system and a premium feel.',
     image: 'assets/products/dreamer.jpg',
     height: '27 cm',
-    category: 'Premium',
-    materials: ['Silver Care and polyester microfiber fabric', 'Highly breathable fabric', 'Polio flexible hard foam', 'Organic cotton', 'Polio Soft foam', 'Dual Technology Pocket Spring'],
+    categoryKey: 'premium',
+    price: null,
+    detail: {
+      en: 'Premium pocket-spring mattress with Silver Care microfiber fabric and dual technology support.',
+      sq: 'Dyshek premium me pocket spring, pëlhurë mikrofibër Silver Care dhe mbështetje Dual Technology.',
+      mk: 'Премиум pocket-spring душек со Silver Care микрофибер ткаенина и Dual Technology поддршка.',
+    },
+    description: {
+      en: 'Dreamer is a premium Feder Bau mattress with a 27 cm profile and Dual Technology Pocket Spring support. The Silver Care and polyester microfiber fabric pairs with breathable layers, organic cotton, Polio Soft foam, and flexible hard foam to create a refined balance of comfort and targeted support. It is suited for customers looking for a more advanced spring system and a premium feel.',
+      sq: 'Dreamer është dyshek premium Feder Bau me profil 27 cm dhe mbështetje Dual Technology Pocket Spring. Pëlhura Silver Care dhe mikrofibër poliestër kombinohet me shtresa të ajrosshme, pambuk organik, shkumë Polio Soft dhe shkumë fleksibile të fortë për të krijuar balancë të rafinuar mes rehatisë dhe mbështetjes së synuar. Është i përshtatshëm për klientë që kërkojnë sistem më të avancuar sustash dhe ndjesi premium.',
+      mk: 'Dreamer е премиум Feder Bau душек со профил од 27 cm и Dual Technology Pocket Spring поддршка. Silver Care и полиестерската микрофибер ткаенина се комбинираат со дишливи слоеви, органски памук, Polio Soft пена и флексибилна тврда пена за рафиниран баланс на удобност и насочена поддршка. Погоден е за купувачи кои бараат понапреден пружински систем и премиум чувство.',
+    },
+    materials: [
+      { en: 'Silver Care and polyester microfiber fabric', sq: 'Pëlhurë Silver Care dhe mikrofibër poliestër', mk: 'Silver Care и полиестерска микрофибер ткаенина' },
+      { en: 'Highly breathable fabric', sq: 'Pëlhurë shumë e ajrosshme', mk: 'Високо дишлива ткаенина' },
+      { en: 'Polio flexible hard foam', sq: 'Shkumë fleksibile e fortë Polio', mk: 'Polio флексибилна тврда пена' },
+      { en: 'Organic cotton', sq: 'Pambuk organik', mk: 'Органски памук' },
+      { en: 'Polio Soft foam', sq: 'Shkumë Polio Soft', mk: 'Polio Soft пена' },
+      { en: 'Dual Technology Pocket Spring', sq: 'Susta pocket Dual Technology', mk: 'Dual Technology Pocket Spring' },
+    ],
   },
   {
     name: 'Duocell',
     slug: 'duocell',
-    detail: 'Breathable lanolin microfiber foam mattress with organic cotton and flexible hard foam support.',
-    description: 'Duocell is a 20 cm foam mattress made with lanolin polyester microfiber fabric, breathable materials, organic cotton, Polio Soft foam, and flexible hard foam. It is designed as a simple and comfortable model for customers who want foam support without a spring system.',
     image: 'assets/products/duocell.jpg',
     height: '20 cm',
-    category: 'Foam Mattresses',
-    materials: ['Lanolin polyester microfiber fabric', 'Highly breathable fabric', 'Organic cotton', 'Polio Soft foam', 'Polio flexible hard foam'],
+    categoryKey: 'foam',
+    price: null,
+    detail: {
+      en: 'Breathable lanolin microfiber foam mattress with organic cotton and flexible hard foam support.',
+      sq: 'Dyshek me shkumë, mikrofibër lanolinë, pambuk organik dhe mbështetje me shkumë fleksibile të fortë.',
+      mk: 'Дишлив душек од пена со ланолин микрофибер, органски памук и поддршка од флексибилна тврда пена.',
+    },
+    description: {
+      en: 'Duocell is a 20 cm foam mattress made with lanolin polyester microfiber fabric, breathable materials, organic cotton, Polio Soft foam, and flexible hard foam. It is designed as a simple and comfortable model for customers who want foam support without a spring system.',
+      sq: 'Duocell është dyshek me shkumë 20 cm, i punuar me pëlhurë mikrofibër poliestër lanolinë, materiale të ajrosshme, pambuk organik, shkumë Polio Soft dhe shkumë fleksibile të fortë. Është krijuar si model i thjeshtë dhe komod për klientë që duan mbështetje me shkumë pa sistem sustash.',
+      mk: 'Duocell е душек од пена од 20 cm, изработен со ланолин полиестерска микрофибер ткаенина, дишливи материјали, органски памук, Polio Soft пена и флексибилна тврда пена. Дизајниран е како едноставен и удобен модел за купувачи кои сакаат поддршка од пена без пружински систем.',
+    },
+    materials: [
+      { en: 'Lanolin polyester microfiber fabric', sq: 'Pëlhurë mikrofibër poliestër lanolinë', mk: 'Ланолин полиестерска микрофибер ткаенина' },
+      { en: 'Highly breathable fabric', sq: 'Pëlhurë shumë e ajrosshme', mk: 'Високо дишлива ткаенина' },
+      { en: 'Organic cotton', sq: 'Pambuk organik', mk: 'Органски памук' },
+      { en: 'Polio Soft foam', sq: 'Shkumë Polio Soft', mk: 'Polio Soft пена' },
+      { en: 'Polio flexible hard foam', sq: 'Shkumë fleksibile e fortë Polio', mk: 'Polio флексибилна тврда пена' },
+    ],
   },
 ];
 
+export const getLocalizedProduct = (product, language = 'en') => ({
+  ...product,
+  detail: tr(product.detail, language),
+  description: tr(product.description, language),
+  category: tr(categoryLabels[product.categoryKey], language),
+  materials: product.materials?.map((material) => tr(material, language)) || [],
+  alt: `${product.name} Feder Bau`,
+})
+
+export const getLocalizedProducts = (language = 'en') => products.map((product) => getLocalizedProduct(product, language))
+
 export const collections = [
-  { title: 'Spring Awakening', subtitle: 'Rejuvenating comfort for the new season' },
-  { title: 'Luxury Hotel Line', subtitle: 'Unrivaled durable support designed for high-end hospitality' },
-  { title: 'Kids Cloud Sleep', subtitle: 'Gentle, breathable, and perfectly safe for children' },
+  {
+    title: { en: 'Spring Awakening', sq: 'Zgjimi i Susta', mk: 'Будење со пружини' },
+    subtitle: {
+      en: 'Rejuvenating comfort for the new season',
+      sq: 'Rehati freskuese për sezonin e ri',
+      mk: 'Освежувачка удобност за новата сезона',
+    },
+  },
+  {
+    title: { en: 'Luxury Hotel Line', sq: 'Linja Luksoze për Hotele', mk: 'Луксузна хотелска линија' },
+    subtitle: {
+      en: 'Durable support designed for high-end hospitality',
+      sq: 'Mbështetje e qëndrueshme për ambiente hoteliere premium',
+      mk: 'Издржлива поддршка дизајнирана за премиум угостителство',
+    },
+  },
+  {
+    title: { en: 'Family Comfort', sq: 'Rehati Familjare', mk: 'Семејна удобност' },
+    subtitle: {
+      en: 'Balanced models for everyday homes and family bedrooms',
+      sq: 'Modele të balancuara për shtëpi dhe dhoma familjare',
+      mk: 'Балансирани модели за секојдневни домови и семејни спални соби',
+    },
+  },
 ];
+
+export const getLocalizedCollections = (language = 'en') => collections.map((collection) => ({
+  title: tr(collection.title, language),
+  subtitle: tr(collection.subtitle, language),
+}))
 
 export const stats = [
   { value: '1997', label: { sq: 'Themeluar', mk: 'Основани', en: 'Established' } },

@@ -1,5 +1,5 @@
 import { Link, useParams } from 'react-router-dom'
-import { products } from '../translations'
+import { products, getLocalizedProduct } from '../translations'
 import { useLanguage } from '../context/LanguageContext'
 import { ProductImage, SectionEyebrow } from '../components/UI'
 
@@ -16,6 +16,8 @@ const labels = {
     ask: 'Pyet për këtë model',
     missingTitle: 'Produkti nuk u gjet',
     missingText: 'Ky produkt mund të jetë zhvendosur ose nuk ekziston më.',
+    descriptionPlaceholder: 'Përshkrimi i produktit do të shtohet së shpejti.',
+    materialsPlaceholder: 'Materialet do të shtohen së shpejti.',
   },
   mk: {
     back: 'Назад кон душеци',
@@ -29,6 +31,8 @@ const labels = {
     ask: 'Прашај за овој модел',
     missingTitle: 'Производот не е пронајден',
     missingText: 'Овој производ можеби е преместен или повеќе не постои.',
+    descriptionPlaceholder: 'Описот на производот ќе биде додаден наскоро.',
+    materialsPlaceholder: 'Материјалите ќе бидат додадени наскоро.',
   },
   en: {
     back: 'Back to mattresses',
@@ -42,6 +46,8 @@ const labels = {
     ask: 'Ask about this model',
     missingTitle: 'Product not found',
     missingText: 'This product may have been moved or no longer exists.',
+    descriptionPlaceholder: 'Product description will be added soon.',
+    materialsPlaceholder: 'Materials will be added soon.',
   },
 }
 
@@ -49,7 +55,8 @@ export default function ProductDetail() {
   const { slug } = useParams()
   const { language } = useLanguage()
   const copy = labels[language] || labels.en
-  const product = products.find((item) => item.slug === slug)
+  const baseProduct = products.find((item) => item.slug === slug)
+  const product = baseProduct ? getLocalizedProduct(baseProduct, language) : null
 
   if (!product) {
     return (
@@ -94,7 +101,7 @@ export default function ProductDetail() {
       <section className="section product-detail-body">
         <div className="product-detail-section">
           <h2>{copy.description}</h2>
-          <p>{product.description || 'Product description placeholder. Add final copy for this mattress when available.'}</p>
+          <p>{product.description || copy.descriptionPlaceholder}</p>
         </div>
 
         <div className="product-detail-section product-detail-materials">
@@ -104,7 +111,7 @@ export default function ProductDetail() {
               {product.materials.map((material) => <li key={material}>{material}</li>)}
             </ul>
           ) : (
-            <p>Materials placeholder.</p>
+            <p>{copy.materialsPlaceholder}</p>
           )}
         </div>
       </section>
