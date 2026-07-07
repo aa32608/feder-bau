@@ -108,7 +108,7 @@ export default function Home() {
         <div className="product-grid">
           {featured.map((product) => (
             <article className="product-card" key={product.name}>
-              <ProductImage product={product} ratio="4 / 3" />
+              <ProductImage product={product} ratio="3 / 2" />
               <div className="product-info">
                 <div className="product-heading-row">
                   <h3>{product.name}</h3>

@@ -74,7 +74,7 @@ export default function ProductDetail() {
       <section className="product-detail-hero">
         <Link className="link-arrow product-back" to="/products">← {copy.back}</Link>
         <div className="product-detail-grid">
-          <ProductImage product={product} ratio="16 / 10" className="product-detail-image" />
+          <ProductImage product={product} ratio="3 / 2" className="product-detail-image" />
           <div className="product-detail-copy">
             <SectionEyebrow>{copy.details}</SectionEyebrow>
             <h1>{product.name}</h1>
