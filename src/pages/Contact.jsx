@@ -3,13 +3,23 @@ import { useLanguage } from '../context/LanguageContext'
 import { getLocalizedProducts } from '../translations'
 import { PageHero, SectionEyebrow } from '../components/UI'
 
-const mapUrl =
+const showroomMapsUrl =
+  'https://www.google.com/maps/place/FederBau/@42.0031445,20.9934168,17z/data=!3m1!4b1!4m6!3m5!1s0x1353fa83fa913b41:0x9f2ccc3f384f5385!8m2!3d42.0031445!4d20.9959917!16s%2Fg%2F11cjj32gqj?entry=ttu'
+const productionMapsUrl =
+  'https://www.google.com/maps/search/?api=1&query=Feder%20Bau%20Golema%20Rechica%20Tetovo%20North%20Macedonia'
+const showroomMapEmbedUrl =
+  'https://www.google.com/maps?q=42.0031445,20.9959917%20FederBau%20Showroom&output=embed'
+const productionMapEmbedUrl =
   'https://www.google.com/maps?q=Feder%20Bau%20Golema%20Rechica%20Tetovo%20North%20Macedonia&output=embed'
 
 const labels = {
   sq: {
     eyebrow: 'Kontakt',
     showroom: 'Showroom',
+    showroomLocation: 'Showroom FederBau',
+    productionLocation: 'Prodhimi / Lokacioni aktual',
+    showroomAddress: 'FederBau Showroom, Tetovë',
+    productionAddress: 'Golema Rechica 1200, Tetovë',
     addressCountry: 'Maqedonia e Veriut',
     openMaps: 'Hap në Google Maps',
     hoursTitle: 'Orari i punës',
@@ -19,10 +29,18 @@ const labels = {
     message: 'Mesazhi',
     messagePlaceholder: 'Shkruani pyetjen tuaj...',
     mapsEyebrow: 'Google Maps',
+    mapTitleShowroom: 'Lokacioni i showroom-it Feder Bau në Google Maps',
+    mapTitleProduction: 'Lokacioni Feder Bau në Golema Reçicë në Google Maps',
+    sentNotice: 'Faleminderit. Kërkesa juaj u dërgua.',
+    formNote: 'Forma dërgohet te info@feder-bau.com.mk. Në dërgimin e parë mund të kërkohet konfirmim nga emaili i kompanisë.',
   },
   mk: {
     eyebrow: 'Контакт',
     showroom: 'Салон',
+    showroomLocation: 'FederBau салон',
+    productionLocation: 'Производство / Тековна локација',
+    showroomAddress: 'FederBau салон, Тетово',
+    productionAddress: 'Голема Речица 1200, Тетово',
     addressCountry: 'Северна Македонија',
     openMaps: 'Отвори во Google Maps',
     hoursTitle: 'Работно време',
@@ -32,10 +50,18 @@ const labels = {
     message: 'Порака',
     messagePlaceholder: 'Напишете го вашето прашање...',
     mapsEyebrow: 'Google Maps',
+    mapTitleShowroom: 'Feder Bau салон на Google Maps',
+    mapTitleProduction: 'Feder Bau локација во Голема Речица на Google Maps',
+    sentNotice: 'Ви благодариме. Вашето барање е испратено.',
+    formNote: 'Формата се испраќа на info@feder-bau.com.mk. При првото испраќање може да биде потребна потврда од компаниската е-пошта.',
   },
   en: {
     eyebrow: 'Contact',
     showroom: 'Showroom',
+    showroomLocation: 'FederBau Showroom',
+    productionLocation: 'Production / Current location',
+    showroomAddress: 'FederBau Showroom, Tetovo',
+    productionAddress: 'Golema Rechica 1200, Tetovo',
     addressCountry: 'North Macedonia',
     openMaps: 'Open in Google Maps',
     hoursTitle: 'Working hours',
@@ -45,6 +71,10 @@ const labels = {
     message: 'Message',
     messagePlaceholder: 'Write your question...',
     mapsEyebrow: 'Google Maps',
+    mapTitleShowroom: 'Feder Bau showroom location on Google Maps',
+    mapTitleProduction: 'Feder Bau Golema Rechica location on Google Maps',
+    sentNotice: 'Thank you. Your inquiry has been sent.',
+    formNote: 'This form sends to info@feder-bau.com.mk. The first submission may require confirmation from the company email address.',
   },
 }
 
@@ -55,21 +85,8 @@ export default function Contact() {
   const [searchParams] = useSearchParams()
   const requestedProduct = searchParams.get('product')
   const selectedProduct = products.find((product) => product.slug === requestedProduct)?.name || products[0]?.name
-
-  const handleSubmit = (event) => {
-    event.preventDefault()
-    const data = new FormData(event.currentTarget)
-    const subject = encodeURIComponent(`Feder Bau - ${data.get('interest') || t.contactTitle}`)
-    const body = encodeURIComponent([
-      `${t.name}: ${data.get('name') || ''}`,
-      `${t.phone}: ${data.get('phone') || ''}`,
-      `${copy.email}: ${data.get('email') || ''}`,
-      `${t.interest}: ${data.get('interest') || ''}`,
-      `${copy.message}:`,
-      data.get('message') || '',
-    ].join('\n'))
-    window.location.href = `mailto:info@feder-bau.com.mk?subject=${subject}&body=${body}`
-  }
+  const sent = searchParams.get('sent') === 'true'
+  const nextUrl = `${window.location.origin}${import.meta.env.BASE_URL}#/contact?sent=true`
 
   return (
     <>
@@ -84,9 +101,27 @@ export default function Contact() {
           <SectionEyebrow>{copy.showroom}</SectionEyebrow>
           <h2>{t.locationTitle}</h2>
           <p>{t.locationText}</p>
+
+          <div className="contact-location-list">
+            <address className="contact-location-card">
+              <strong>{copy.showroomLocation}</strong>
+              <span>{copy.showroomAddress}<br/>{copy.addressCountry}</span>
+              <a href={showroomMapsUrl} rel="noreferrer" target="_blank">
+                {copy.openMaps} →
+              </a>
+            </address>
+
+            <address className="contact-location-card">
+              <strong>{copy.productionLocation}</strong>
+              <span>{copy.productionAddress}<br/>{copy.addressCountry}</span>
+              <a href={productionMapsUrl} rel="noreferrer" target="_blank">
+                {copy.openMaps} →
+              </a>
+            </address>
+          </div>
+
           <address>
             <strong>Feder Bau</strong>
-            <span>Golema Rechica 1200, Tetovo<br/>{copy.addressCountry}</span>
             <div style={{display:'grid', gap:'6px', marginTop:'10px'}}>
               <a href="tel:+38971224805">+389 (0) 71 224 805</a>
               <a href="tel:+38971224804">+389 (0) 71 224 804</a>
@@ -94,13 +129,6 @@ export default function Contact() {
               <a href="tel:+38944482141">+389 (0) 44 482 141</a>
               <a href="mailto:info@feder-bau.com.mk">info@feder-bau.com.mk</a>
             </div>
-            <a
-              href="https://www.google.com/maps/search/?api=1&query=Feder%20Bau%20Golema%20Rechica%20Tetovo%20North%20Macedonia"
-              rel="noreferrer"
-              target="_blank"
-            >
-              {copy.openMaps} →
-            </a>
           </address>
 
           <div className="contact-hours">
@@ -109,7 +137,15 @@ export default function Contact() {
           </div>
         </div>
 
-        <form onSubmit={handleSubmit}>
+        <form action="https://formsubmit.co/info@feder-bau.com.mk" method="POST">
+          <input type="hidden" name="_subject" value="New Feder Bau website inquiry" />
+          <input type="hidden" name="_template" value="table" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="_next" value={nextUrl} />
+          <input type="text" name="_honey" style={{display: 'none'}} tabIndex="-1" autoComplete="off" />
+
+          {sent && <p className="form-success">{copy.sentNotice}</p>}
+
           <label>
             {t.name}
             <input name="name" type="text" placeholder="Arben" required />
@@ -136,7 +172,7 @@ export default function Contact() {
           </label>
           <button type="submit">{t.send}</button>
           <p style={{fontSize:'0.78rem', color:'var(--muted)', margin:0}}>
-            {t.placeholderNotice}
+            {copy.formNote}
           </p>
         </form>
       </section>
@@ -147,24 +183,36 @@ export default function Contact() {
           <h2>{t.locationTitle}</h2>
           <p>{t.locationText}</p>
           <address>
-            <strong>Feder Bau</strong>
-            <span>Golema Rechica 1200, Tetovo</span>
-            <a
-              href="https://www.google.com/maps/search/?api=1&query=Feder%20Bau%20Golema%20Rechica%20Tetovo%20North%20Macedonia"
-              rel="noreferrer"
-              target="_blank"
-            >
+            <strong>{copy.showroomLocation}</strong>
+            <span>{copy.showroomAddress}</span>
+            <a href={showroomMapsUrl} rel="noreferrer" target="_blank">
+              {copy.openMaps}
+            </a>
+          </address>
+          <address>
+            <strong>{copy.productionLocation}</strong>
+            <span>{copy.productionAddress}</span>
+            <a href={productionMapsUrl} rel="noreferrer" target="_blank">
               {copy.openMaps}
             </a>
           </address>
         </div>
-        <iframe
-          className="map-frame"
-          loading="lazy"
-          referrerPolicy="no-referrer-when-downgrade"
-          src={mapUrl}
-          title="Feder Bau location on Google Maps"
-        />
+        <div className="map-grid">
+          <iframe
+            className="map-frame"
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            src={showroomMapEmbedUrl}
+            title={copy.mapTitleShowroom}
+          />
+          <iframe
+            className="map-frame"
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            src={productionMapEmbedUrl}
+            title={copy.mapTitleProduction}
+          />
+        </div>
       </section>
     </>
   )
