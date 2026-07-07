@@ -1,14 +1,18 @@
 import { useState } from 'react'
 import { useLanguage } from '../context/LanguageContext'
 import { products } from '../translations'
-import { PlaceholderBox, SectionEyebrow, PageHero } from '../components/UI'
+import { ProductImage, PageHero } from '../components/UI'
 import { Link } from 'react-router-dom'
 
 export default function Products() {
-  const { t } = useLanguage()
+  const { t, language } = useLanguage()
   const [filter, setFilter] = useState('all')
 
-  const categories = ['all', ...t.categories.slice(0,4)]
+  const allLabel = { sq: 'Të gjitha', mk: 'Сите', en: 'All' }[language] || 'All'
+  const categories = ['all', ...Array.from(new Set(products.map((product) => product.category).filter(Boolean)))]
+  const visibleProducts = filter === 'all'
+    ? products
+    : products.filter((product) => product.category === filter)
 
   return (
     <>
@@ -20,25 +24,33 @@ export default function Products() {
 
       <section className="section products" style={{ paddingTop: '40px' }}>
         <div className="product-filters">
-          {categories.map((c, i) => (
+          {categories.map((c) => (
             <button 
               key={c}
               onClick={()=>setFilter(c)}
               className={filter === c ? 'active':''}
               type="button"
             >
-              {i===0 ? ({sq:'Të gjitha', mk:'Сите', en:'All'}[t.nav ? 'en' : 'en']) || 'All' : c}
+              {c === 'all' ? allLabel : c}
             </button>
           ))}
         </div>
 
         <div className="product-grid">
-          {products.map((product) => (
+          {visibleProducts.map((product) => (
             <article className="product-card" key={product.name}>
-              <PlaceholderBox label={product.name} ratio="4 / 3" />
+              <ProductImage product={product} ratio="4 / 3" />
               <div className="product-info">
-                <h3>{product.name}</h3>
+                <div className="product-heading-row">
+                  <h3>{product.name}</h3>
+                  {product.height && <span className="product-height">{product.height}</span>}
+                </div>
                 <p>{product.detail}</p>
+                {product.materials?.length > 0 && (
+                  <ul className="material-list" aria-label={`${product.name} materials`}>
+                    {product.materials.map((material) => <li key={material}>{material}</li>)}
+                  </ul>
+                )}
                 <div className="product-meta">
                   <span className="product-price">—</span>
                   <span className="product-tag">Made in Tetovo</span>

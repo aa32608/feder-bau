@@ -2,7 +2,13 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useLanguage } from '../context/LanguageContext'
 import { products, collections, stats } from '../translations'
-import { PlaceholderBox, SectionEyebrow } from '../components/UI'
+import { ProductImage, SectionEyebrow, assetUrl } from '../components/UI'
+
+const heroImages = [
+  'assets/products/dreamer.jpg',
+  'assets/products/viscoline.jpg',
+  'assets/products/comfort.jpg',
+]
 
 function HeroCarousel({ slides }) {
   const [active, setActive] = useState(0)
@@ -23,7 +29,7 @@ function HeroCarousel({ slides }) {
         {slides.map((slide, index) => (
           <div className="hero-slide" key={index} aria-hidden={active !== index}>
             <div className="hero-slide-bg">
-              <PlaceholderBox label={`Hero ${index + 1}`} ratio="16 / 9" />
+              <img src={assetUrl(heroImages[index % heroImages.length])} alt="Feder Bau mattress" />
             </div>
             <div className="hero-slide-overlay" />
             <div className="hero-slide-content">
@@ -78,8 +84,8 @@ export default function Home() {
         <div className="category-list">
           {t.categories.map((category, index) => (
             <Link className="category-card" to="/products" key={index}>
-              <span className="category-icon">
-                <PlaceholderBox label={`Icon ${index + 1}`} ratio="1 / 1" />
+              <span className="category-icon category-letter">
+                {category.charAt(0)}
               </span>
               <span className="category-name">{category}</span>
             </Link>
@@ -96,9 +102,12 @@ export default function Home() {
         <div className="product-grid">
           {featured.map((product) => (
             <article className="product-card" key={product.name}>
-              <PlaceholderBox label={product.name} ratio="4 / 3" />
+              <ProductImage product={product} ratio="4 / 3" />
               <div className="product-info">
-                <h3>{product.name}</h3>
+                <div className="product-heading-row">
+                  <h3>{product.name}</h3>
+                  <span className="product-height">{product.height}</span>
+                </div>
                 <p>{product.detail}</p>
                 <span className="product-price">—</span>
                 <Link className="product-cta" to="/products">{t.productCta}</Link>
@@ -113,7 +122,7 @@ export default function Home() {
 
       <section className="section about" id="about">
         <div className="about-media">
-          <PlaceholderBox label="Showroom" ratio="4 / 3" />
+          <img className="about-photo" src={assetUrl('assets/brand/feder-bau-brand-photo.jpg')} alt="Feder Bau brand" loading="lazy" />
         </div>
         <div className="about-copy">
           <SectionEyebrow>1997</SectionEyebrow>
@@ -141,8 +150,8 @@ export default function Home() {
         <div className="benefits-grid">
           {t.benefits.map((benefit, index) => (
             <div className="benefit-card" key={index}>
-              <div className="benefit-icon">
-                <PlaceholderBox label={`${index + 1}`} ratio="1 / 1" />
+              <div className="benefit-icon benefit-number">
+                {index + 1}
               </div>
               <h3>{benefit.title}</h3>
               <p>{benefit.text}</p>
@@ -161,7 +170,7 @@ export default function Home() {
           {collections.map((collection, index) => (
             <article className="collection-card" key={index}>
               <div className="collection-media">
-                <PlaceholderBox label={collection.title} ratio="16 / 9" />
+                <img src={assetUrl(products[index % products.length].image)} alt={collection.title} loading="lazy" />
               </div>
               <div className="collection-content">
                 <h3>{collection.title}</h3>

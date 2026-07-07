@@ -1,6 +1,6 @@
 import { useLanguage } from '../context/LanguageContext'
-import { stats } from '../translations'
-import { PlaceholderBox, PageHero, SectionEyebrow } from '../components/UI'
+import { products, stats } from '../translations'
+import { PageHero, SectionEyebrow, assetUrl } from '../components/UI'
 import { Link } from 'react-router-dom'
 
 export default function About() {
@@ -16,7 +16,7 @@ export default function About() {
 
       <section className="section about">
         <div className="about-media">
-          <PlaceholderBox label="Fabrika Feder Bau" ratio="4 / 3" />
+          <img className="about-photo" src={assetUrl('assets/brand/feder-bau-brand-photo.jpg')} alt="Feder Bau brand" loading="lazy" />
         </div>
         <div className="about-copy">
           <SectionEyebrow>Showroom</SectionEyebrow>
@@ -42,8 +42,8 @@ export default function About() {
         <div className="benefits-grid">
           {t.benefits.map((benefit, index) => (
             <div className="benefit-card tall" key={index}>
-              <div className="benefit-icon">
-                <PlaceholderBox label={`${index + 1}`} ratio="1 / 1" />
+              <div className="benefit-icon benefit-number">
+                {index + 1}
               </div>
               <h3>{benefit.title}</h3>
               <p>{benefit.text}</p>
@@ -64,7 +64,7 @@ export default function About() {
           </div>
         </div>
         <div className="about-media">
-          <PlaceholderBox label="Mjeshtëri" ratio="4 / 3" />
+          <img className="about-photo" src={assetUrl(products[5].image)} alt="Feder Bau Dreamer mattress" loading="lazy" />
         </div>
       </section>
     </>

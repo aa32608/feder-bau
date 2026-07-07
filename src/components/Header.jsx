@@ -2,6 +2,7 @@ import { NavLink, Link } from 'react-router-dom'
 import { useLanguage } from '../context/LanguageContext'
 import { languages } from '../translations'
 import { useState } from 'react'
+import { BrandLogo } from './UI'
 
 export default function Header() {
   const { language, setLanguage, t } = useLanguage()
@@ -19,8 +20,7 @@ export default function Header() {
   return (
     <header className="site-header">
       <Link className="brand" to="/" aria-label="Feder Bau home" onClick={()=>setOpen(false)}>
-        <span className="brand-mark">FB</span>
-        <span>Feder Bau</span>
+        <BrandLogo />
       </Link>
 
       <nav aria-label="Primary navigation" className={open ? 'nav-open' : ''}>

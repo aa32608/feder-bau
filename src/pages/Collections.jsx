@@ -1,6 +1,6 @@
 import { useLanguage } from '../context/LanguageContext'
-import { collections } from '../translations'
-import { PlaceholderBox, PageHero, SectionEyebrow } from '../components/UI'
+import { collections, products } from '../translations'
+import { PageHero, SectionEyebrow, assetUrl } from '../components/UI'
 import { Link } from 'react-router-dom'
 
 export default function Collections() {
@@ -19,7 +19,7 @@ export default function Collections() {
           {collections.map((collection, index) => (
             <article className="collection-card" key={index}>
               <div className="collection-media">
-                <PlaceholderBox label={collection.title} ratio="16 / 9" />
+                <img src={assetUrl(products[index % products.length].image)} alt={collection.title} loading="lazy" />
               </div>
               <div className="collection-content">
                 <SectionEyebrow>{'0'+(index+1)}</SectionEyebrow>
@@ -29,11 +29,10 @@ export default function Collections() {
               </div>
             </article>
           ))}
-          {/* duplicate for visual density */}
           {collections.map((collection, index) => (
             <article className="collection-card subtle" key={'b'+index}>
               <div className="collection-media">
-                <PlaceholderBox label={collection.title + ' II'} ratio="16 / 9" />
+                <img src={assetUrl(products[(index + 3) % products.length].image)} alt={t.categories[index+3] || collection.title} loading="lazy" />
               </div>
               <div className="collection-content">
                 <h3>{t.categories[index+3] || collection.title}</h3>
@@ -53,8 +52,8 @@ export default function Collections() {
         <div className="benefits-grid">
           {t.benefits.map((benefit, index) => (
             <div className="benefit-card" key={index}>
-              <div className="benefit-icon">
-                <PlaceholderBox label={`${index + 1}`} ratio="1 / 1" />
+              <div className="benefit-icon benefit-number">
+                {index + 1}
               </div>
               <h3>{benefit.title}</h3>
               <p>{benefit.text}</p>

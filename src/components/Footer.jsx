@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { useLanguage } from '../context/LanguageContext'
+import { BrandLogo } from './UI'
 
 export default function Footer() {
   const { t } = useLanguage()
@@ -8,10 +9,9 @@ export default function Footer() {
     <footer>
       <div className="footer-grid">
         <div className="footer-brand">
-          <span className="brand">
-            <span className="brand-mark">FB</span>
-            <span>Feder Bau</span>
-          </span>
+          <Link className="brand" to="/" aria-label="Feder Bau home">
+            <BrandLogo />
+          </Link>
           <p>{t.footerTagline}</p>
           <div className="footer-social">
             <a href="https://www.facebook.com/Feder-Bau-280635381948835/?ref=page_internal" target="_blank" rel="noreferrer">Facebook</a>
@@ -22,9 +22,9 @@ export default function Footer() {
         <div className="footer-links">
           <strong>Products</strong>
           <Link to="/products">Mattresses</Link>
-          <Link to="/products">Pillows</Link>
-          <Link to="/products">Bases</Link>
-          <Link to="/collections">Accessories</Link>
+          <Link to="/products">Classic</Link>
+          <Link to="/products">Comfort</Link>
+          <Link to="/products">Dreamer</Link>
         </div>
         <div className="footer-links">
           <strong>Company</strong>
