@@ -154,7 +154,9 @@ export const languages = {
 export const products = [
   {
     name: 'Classic',
+    slug: 'classic',
     detail: 'Everyday spring mattress with breathable jacquard fabric and reliable Bonell Hercul spring support.',
+    description: 'Classic is a practical Feder Bau mattress created for everyday comfort and dependable support. Its jacquard and breathable fabric cover helps keep the sleeping surface fresh, while synthetic cotton, hard felt, Polio Soft foam, and Bonell Hercul springs create a stable feel for daily use. It is a simple, reliable option for bedrooms, guest rooms, and customers looking for strong value.',
     image: 'assets/products/classic.jpg',
     height: '20 cm',
     category: 'Spring Mattresses',
@@ -162,7 +164,9 @@ export const products = [
   },
   {
     name: 'Monocell Aloe',
+    slug: 'monocell-aloe',
     detail: 'AloeVera microfiber mattress with breathable comfort layers and a clean foam construction.',
+    description: 'Monocell Aloe is a foam mattress focused on a clean, breathable sleep surface. The AloeVera polyester microfiber fabric gives the model a fresh and soft touch, supported by synthetic cotton and Polio Soft foam layers. Its 18 cm profile makes it a simple, lightweight choice for everyday comfort.',
     image: 'assets/products/monocell-aloe.jpg',
     height: '18 cm',
     category: 'Foam Mattresses',
@@ -170,7 +174,9 @@ export const products = [
   },
   {
     name: 'Viscoline',
+    slug: 'viscoline',
     detail: 'Premium 28 cm mattress with antistress fabric, memory foam, resilient foam, and organic cotton.',
+    description: 'Viscoline is one of the more advanced Feder Bau models, designed for customers who want a richer comfort build. It combines antistress viscose and polyester microfiber fabric with breathable layers, high-resilience foam, Polio Soft foam, flexible hard foam, organic cotton, and Myform memory foam. The result is a taller 28 cm mattress with adaptive comfort and strong support.',
     image: 'assets/products/viscoline.jpg',
     height: '28 cm',
     category: 'Memory Foam',
@@ -178,7 +184,9 @@ export const products = [
   },
   {
     name: 'Ortopedik',
+    slug: 'ortopedik',
     detail: 'Orthopedic spring mattress with twin hard-felt layers for firmer support and breathable comfort.',
+    description: 'Ortopedik is built for customers who prefer firmer, more structured support. Its jacquard breathable fabric, synthetic cotton, Polio Soft foam, twin hard-felt layers, and Bonell Hercul spring system create a stable mattress construction. The 22 cm height offers a balanced orthopedic feel for everyday sleeping support.',
     image: 'assets/products/ortopedik.jpg',
     height: '22 cm',
     category: 'Orthopedic',
@@ -186,7 +194,9 @@ export const products = [
   },
   {
     name: 'Comfort',
+    slug: 'comfort',
     detail: 'Tall comfort mattress combining Bonell Hercul springs, multi inner filling foam, and organic cotton.',
+    description: 'Comfort is a 28 cm mattress designed to deliver a fuller, more cushioned sleeping experience. It uses Easy Comfort polyester microfiber fabric, breathable layers, organic cotton, Polio Soft foam, flexible hard foam, twin hard-felt layers, multi inner filling foam, and Bonell Hercul springs. This combination gives the model a supportive spring base with added comfort layers on top.',
     image: 'assets/products/comfort.jpg',
     height: '28 cm',
     category: 'Spring Mattresses',
@@ -194,7 +204,9 @@ export const products = [
   },
   {
     name: 'Dreamer',
+    slug: 'dreamer',
     detail: 'Premium pocket-spring mattress with Silver Care microfiber fabric and dual technology support.',
+    description: 'Dreamer is a premium Feder Bau mattress with a 27 cm profile and Dual Technology Pocket Spring support. The Silver Care and polyester microfiber fabric pairs with breathable layers, organic cotton, Polio Soft foam, and flexible hard foam to create a refined balance of comfort and targeted support. It is suited for customers looking for a more advanced spring system and a premium feel.',
     image: 'assets/products/dreamer.jpg',
     height: '27 cm',
     category: 'Premium',
@@ -202,7 +214,9 @@ export const products = [
   },
   {
     name: 'Duocell',
+    slug: 'duocell',
     detail: 'Breathable lanolin microfiber foam mattress with organic cotton and flexible hard foam support.',
+    description: 'Duocell is a 20 cm foam mattress made with lanolin polyester microfiber fabric, breathable materials, organic cotton, Polio Soft foam, and flexible hard foam. It is designed as a simple and comfortable model for customers who want foam support without a spring system.',
     image: 'assets/products/duocell.jpg',
     height: '20 cm',
     category: 'Foam Mattresses',

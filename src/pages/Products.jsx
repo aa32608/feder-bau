@@ -56,7 +56,7 @@ export default function Products() {
                   <span className="product-tag">Made in Tetovo</span>
                 </div>
                 <div className="product-actions">
-                  <Link to="/contact" className="product-cta">{t.productCta}</Link>
+                  <Link to={`/products/${product.slug}`} className="product-cta">{t.productCta}</Link>
                 </div>
               </div>
             </article>
