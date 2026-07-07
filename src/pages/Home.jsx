@@ -110,7 +110,7 @@ export default function Home() {
                 </div>
                 <p>{product.detail}</p>
                 <span className="product-price">—</span>
-                <Link className="product-cta" to="/products">{t.productCta}</Link>
+                <Link className="product-cta" to={`/products/${product.slug}`}>{t.productCta}</Link>
               </div>
             </article>
           ))}
