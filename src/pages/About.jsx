@@ -1,5 +1,6 @@
 import { useLanguage } from '../context/LanguageContext'
-import { products, stats } from '../translations'
+import { stats } from '../translations'
+import { siteImages } from '../data/siteImages'
 import { PageHero, SectionEyebrow } from '../components/UI'
 import { assetUrl } from '../utils/assets'
 import { Link } from 'react-router-dom'
@@ -9,19 +10,19 @@ const labels = {
     showroom: 'Showroom',
     craftsmanship: 'Mjeshtëri',
     brandAlt: 'Brendi Feder Bau',
-    mattressAlt: 'Dyshek Feder Bau Dreamer',
+    mattressAlt: 'Detaje të prodhimit Feder Bau',
   },
   mk: {
     showroom: 'Салон',
     craftsmanship: 'Изработка',
     brandAlt: 'Бренд Feder Bau',
-    mattressAlt: 'Feder Bau Dreamer душек',
+    mattressAlt: 'Детали од производството на Feder Bau',
   },
   en: {
     showroom: 'Showroom',
     craftsmanship: 'Craftsmanship',
     brandAlt: 'Feder Bau brand',
-    mattressAlt: 'Feder Bau Dreamer mattress',
+    mattressAlt: 'Feder Bau production detail',
   },
 }
 
@@ -39,7 +40,7 @@ export default function About() {
 
       <section className="section about">
         <div className="about-media">
-          <img className="about-photo" src={assetUrl('assets/brand/feder-bau-brand-photo.jpg')} alt={copy.brandAlt} loading="lazy" />
+          <img className="about-photo" src={assetUrl(siteImages.about.showroom)} alt={copy.brandAlt} loading="lazy" />
         </div>
         <div className="about-copy">
           <SectionEyebrow>{copy.showroom}</SectionEyebrow>
@@ -87,7 +88,7 @@ export default function About() {
           </div>
         </div>
         <div className="about-media">
-          <img className="about-photo" src={assetUrl(products[5].image)} alt={copy.mattressAlt} loading="lazy" />
+          <img className="about-photo" src={assetUrl(siteImages.about.craft)} alt={copy.mattressAlt} loading="lazy" />
         </div>
       </section>
     </>

@@ -1,5 +1,6 @@
 import { useLanguage } from '../context/LanguageContext'
-import { getLocalizedCollections, getLocalizedProducts } from '../translations'
+import { getLocalizedCollections } from '../translations'
+import { siteImages } from '../data/siteImages'
 import { PageHero, SectionEyebrow } from '../components/UI'
 import { assetUrl } from '../utils/assets'
 import { Link } from 'react-router-dom'
@@ -7,7 +8,6 @@ import { Link } from 'react-router-dom'
 export default function Collections() {
   const { t, language } = useLanguage()
   const collections = getLocalizedCollections(language)
-  const products = getLocalizedProducts(language)
 
   return (
     <>
@@ -22,7 +22,7 @@ export default function Collections() {
           {collections.map((collection, index) => (
             <article className="collection-card" key={index}>
               <div className="collection-media">
-                <img src={assetUrl(products[index % products.length].image)} alt={collection.title} loading="lazy" />
+                <img src={assetUrl(siteImages.collections[index % siteImages.collections.length])} alt={collection.title} loading="lazy" />
               </div>
               <div className="collection-content">
                 <SectionEyebrow>{'0'+(index+1)}</SectionEyebrow>
@@ -35,7 +35,7 @@ export default function Collections() {
           {collections.map((collection, index) => (
             <article className="collection-card subtle" key={'b'+index}>
               <div className="collection-media">
-                <img src={assetUrl(products[(index + 3) % products.length].image)} alt={t.categories[index+3] || collection.title} loading="lazy" />
+                <img src={assetUrl(siteImages.collections[(index + 3) % siteImages.collections.length])} alt={t.categories[index+3] || collection.title} loading="lazy" />
               </div>
               <div className="collection-content">
                 <h3>{t.categories[index+3] || collection.title}</h3>

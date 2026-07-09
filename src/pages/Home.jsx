@@ -2,14 +2,11 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useLanguage } from '../context/LanguageContext'
 import { getLocalizedProducts, getLocalizedCollections, stats } from '../translations'
+import { siteImages } from '../data/siteImages'
 import { ProductImage, SectionEyebrow } from '../components/UI'
 import { assetUrl } from '../utils/assets'
 
-const heroImages = [
-  'assets/products/dreamer.jpg',
-  'assets/products/viscoline.jpg',
-  'assets/products/comfort.jpg',
-]
+const heroImages = siteImages.hero
 
 const heroTargets = ['/collections', '/experience', '/products']
 
@@ -90,8 +87,8 @@ export default function Home() {
         <div className="category-list">
           {t.categories.map((category, index) => (
             <Link className="category-card" to="/products" key={index}>
-              <span className="category-icon category-letter">
-                {category.charAt(0)}
+              <span className="category-icon category-photo">
+                <img src={assetUrl(siteImages.categories[index % siteImages.categories.length])} alt={category} loading="lazy" />
               </span>
               <span className="category-name">{category}</span>
             </Link>
@@ -128,7 +125,7 @@ export default function Home() {
 
       <section className="section about" id="about">
         <div className="about-media">
-          <img className="about-photo" src={assetUrl('assets/brand/feder-bau-brand-photo.jpg')} alt={brandAlt} loading="lazy" />
+          <img className="about-photo" src={assetUrl(siteImages.about.showroom)} alt={brandAlt} loading="lazy" />
         </div>
         <div className="about-copy">
           <SectionEyebrow>1997</SectionEyebrow>
@@ -156,8 +153,8 @@ export default function Home() {
         <div className="benefits-grid">
           {t.benefits.map((benefit, index) => (
             <div className="benefit-card" key={index}>
-              <div className="benefit-icon benefit-number">
-                {index + 1}
+              <div className="benefit-icon benefit-photo">
+                <img src={assetUrl(siteImages.benefits[index % siteImages.benefits.length])} alt={benefit.title} loading="lazy" />
               </div>
               <h3>{benefit.title}</h3>
               <p>{benefit.text}</p>
@@ -176,7 +173,7 @@ export default function Home() {
           {collections.map((collection, index) => (
             <article className="collection-card" key={index}>
               <div className="collection-media">
-                <img src={assetUrl(products[index % products.length].image)} alt={collection.title} loading="lazy" />
+                <img src={assetUrl(siteImages.collections[index % siteImages.collections.length])} alt={collection.title} loading="lazy" />
               </div>
               <div className="collection-content">
                 <h3>{collection.title}</h3>
