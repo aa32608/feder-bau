@@ -9,12 +9,12 @@ export const siteImages = {
   // Category images are matched by meaning/order:
   // spring, foam, memory, orthopedic/support, premium, hotel/family.
   categories: [
-    'assets/site-photos/spring-closeup.jpg',
+    'assets/site-photos/spring-collection.jpg',
     'assets/site-photos/bedroom-bed.jpg',
     'assets/site-photos/sofa-room.jpg',
     'assets/site-photos/showroom-rack.jpg',
-    'assets/experience/premium-bed.jpg',
-    'assets/experience/bedroom-craft.jpg',
+    'assets/site-photos/premium-collection.jpg',
+    'assets/site-photos/hotel-family-collection.jpg',
   ],
 
   // Benefit images are small visual accents, selected to match the text instead of being random product shots.
@@ -27,12 +27,12 @@ export const siteImages = {
 
   // Collection imagery should feel like lifestyle / range / hospitality, not just repeated mattress product cards.
   collections: [
-    'assets/site-photos/spring-closeup.jpg',
-    'assets/experience/premium-bed.jpg',
-    'assets/experience/bedroom-craft.jpg',
-    'assets/site-photos/showroom-rack.jpg',
-    'assets/site-photos/majestic-official.jpg',
-    'assets/experience/hotel-references.jpg',
+    'assets/site-photos/spring-collection.jpg',
+    'assets/site-photos/hotel-family-collection.jpg',
+    'assets/site-photos/premium-collection.jpg',
+    'assets/site-photos/memory-foam-official-full-1250.jpg',
+    'assets/site-photos/topper-official-full-1366.jpg',
+    'assets/site-photos/baby-dream-official-full-1250.jpg',
   ],
 
   about: {
