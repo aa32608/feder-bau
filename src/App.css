@@ -1218,27 +1218,130 @@ input:focus, select:focus {
 
 .experience-story-media {
   position: relative;
-  min-height: 520px;
+  min-height: 560px;
 }
 
-.experience-story-media img {
+.before-after-stage {
+  position: relative;
+  min-height: 560px;
+  isolation: isolate;
+}
+
+.before-after-stage::before {
+  content: '';
   position: absolute;
-  width: 62%;
-  height: 70%;
-  object-fit: cover;
-  box-shadow: var(--shadow);
+  inset: 9% 8% 8% 10%;
+  border: 1px solid rgba(196,164,124,0.52);
+  transform: rotate(-4deg);
+  z-index: 0;
 }
 
-.experience-story-media img:first-child {
+.before-after-stage::after {
+  content: '';
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  right: 4%;
+  top: 3%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(196,164,124,0.24), transparent 68%);
+  z-index: 0;
+}
+
+.before-after-card {
+  position: absolute;
+  margin: 0;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: var(--shadow);
+  border: 10px solid #fff;
+  transition: transform 0.55s cubic-bezier(.2,.8,.2,1), filter 0.55s ease, z-index 0.2s ease;
+  z-index: 2;
+}
+
+.before-after-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 1s cubic-bezier(.2,.8,.2,1);
+}
+
+.before-after-card figcaption {
+  position: absolute;
+  left: 18px;
+  bottom: 18px;
+  padding: 8px 14px;
+  color: #fff;
+  background: rgba(28,35,49,0.78);
+  backdrop-filter: blur(8px);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.before-card {
   left: 0;
   top: 0;
-  filter: grayscale(100%);
+  width: 58%;
+  height: 72%;
+  filter: grayscale(100%) contrast(1.05);
+  transform: rotate(-4deg);
+  animation: floatBefore 5.5s ease-in-out infinite;
 }
 
-.experience-story-media img:last-child {
+.after-card {
   right: 0;
   bottom: 0;
-  border: 12px solid var(--cream);
+  width: 68%;
+  height: 76%;
+  transform: rotate(3deg);
+  animation: floatAfter 6.2s ease-in-out infinite;
+}
+
+.before-after-stage:hover .before-card {
+  transform: translate(-8px, -8px) rotate(-2deg) scale(1.03);
+  filter: grayscale(35%) contrast(1.04);
+  z-index: 4;
+}
+
+.before-after-stage:hover .after-card {
+  transform: translate(8px, 8px) rotate(1deg) scale(1.03);
+  z-index: 5;
+}
+
+.before-after-stage:hover .before-after-card img {
+  transform: scale(1.06);
+}
+
+.before-after-orbit {
+  position: absolute;
+  left: 42%;
+  top: 42%;
+  width: 86px;
+  height: 86px;
+  border-radius: 50%;
+  border: 1px solid rgba(196,164,124,0.7);
+  z-index: 6;
+  animation: orbitPulse 2.8s ease-in-out infinite;
+}
+
+.before-after-orbit::before,
+.before-after-orbit::after {
+  content: '';
+  position: absolute;
+  inset: 50% auto auto 50%;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--gold);
+  transform: translate(-50%, -50%);
+}
+
+.before-after-orbit::after {
+  inset: auto 9px 9px auto;
+  background: var(--navy);
 }
 
 .experience-story-copy,
@@ -1565,20 +1668,34 @@ input:focus, select:focus {
 
 .experience-gallery {
   display: grid;
-  grid-template-columns: 1fr 1.2fr 1fr;
+  grid-template-columns: 0.9fr 1.25fr 0.9fr;
   gap: 24px;
+  align-items: center;
   background: var(--cream);
 }
 
 .experience-gallery img {
   width: 100%;
-  height: 360px;
+  height: 410px;
   object-fit: cover;
   box-shadow: var(--shadow-sm);
+  border: 10px solid #fff;
+  transition: transform 0.45s ease, box-shadow 0.45s ease;
 }
 
 .experience-gallery img:nth-child(2) {
+  height: 500px;
   transform: translateY(34px);
+  box-shadow: var(--shadow);
+}
+
+.experience-gallery img:hover {
+  transform: translateY(-8px) scale(1.015);
+  box-shadow: var(--shadow);
+}
+
+.experience-gallery img:nth-child(2):hover {
+  transform: translateY(22px) scale(1.015);
 }
 
 .experience-quote {
@@ -1604,6 +1721,32 @@ input:focus, select:focus {
   font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
+}
+
+.presentation-download {
+  background: var(--cream);
+}
+
+.presentation-download-card {
+  max-width: 1080px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 28px;
+  padding: clamp(30px, 5vw, 56px);
+  background: #fff;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+}
+
+.presentation-download-card h2 {
+  font-size: clamp(1.8rem, 3.5vw, 2.9rem);
+}
+
+.presentation-download-card p {
+  max-width: 680px;
+  margin-bottom: 0;
 }
 
 .experience-closing {
@@ -1657,11 +1800,29 @@ input:focus, select:focus {
   to { transform: scale(1.06); }
 }
 
+@keyframes floatBefore {
+  0%, 100% { translate: 0 0; }
+  50% { translate: 0 -10px; }
+}
+
+@keyframes floatAfter {
+  0%, 100% { translate: 0 0; }
+  50% { translate: 0 12px; }
+}
+
+@keyframes orbitPulse {
+  0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.78; }
+  50% { transform: scale(1.08) rotate(10deg); opacity: 1; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .reveal-up,
   .reveal-left,
   .reveal-right,
-  .experience-hero-media img {
+  .experience-hero-media img,
+  .before-card,
+  .after-card,
+  .before-after-orbit {
     animation: none;
   }
 }
@@ -1775,8 +1936,15 @@ footer {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .experience-story-media {
-    min-height: 420px;
+  .experience-story-media,
+  .before-after-stage {
+    min-height: 480px;
+  }
+
+  .presentation-download-card {
+    grid-template-columns: 1fr;
+    text-align: center;
+    justify-items: center;
   }
 }
 
@@ -1823,14 +1991,45 @@ footer {
     min-height: 760px;
   }
 
-  .experience-story-media {
-    min-height: 360px;
+  .experience-story-media,
+  .before-after-stage {
+    min-height: 560px;
+  }
+
+  .before-after-card {
+    border-width: 7px;
+  }
+
+  .before-card,
+  .after-card {
+    width: 82%;
+    height: 48%;
+  }
+
+  .before-card {
+    left: 0;
+    top: 0;
+  }
+
+  .after-card {
+    right: 0;
+    bottom: 0;
+  }
+
+  .before-after-orbit {
+    left: 40%;
+    top: 44%;
   }
 
   .experience-gallery img,
   .experience-gallery img:nth-child(2) {
-    height: 260px;
+    height: 280px;
     transform: none;
+  }
+
+  .experience-gallery img:nth-child(2):hover,
+  .experience-gallery img:hover {
+    transform: translateY(-6px);
   }
   
   .footer-grid {

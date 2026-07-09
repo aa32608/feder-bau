@@ -73,9 +73,7 @@ export default function Experience() {
           <p>{copy.intro}</p>
           <div className="experience-actions">
             <Link to="/products" className="button primary">{copy.primaryCta}</Link>
-            <a href={assetUrl(experienceAssets.pdf)} className="button light" target="_blank" rel="noreferrer">
-              {copy.secondaryCta}
-            </a>
+            <Link to="/contact" className="button light">{copy.contactCta}</Link>
           </div>
         </div>
       </section>
@@ -91,8 +89,17 @@ export default function Experience() {
 
       <section className="section experience-story">
         <div className="experience-story-media reveal-left">
-          <img src={assetUrl(experienceAssets.garage)} alt="Feder Bau early workshop" loading="lazy" />
-          <img src={assetUrl(experienceAssets.factory)} alt="Feder Bau factory" loading="lazy" />
+          <div className="before-after-stage" aria-label={`${copy.beforeLabel} / ${copy.afterLabel}`}>
+            <figure className="before-after-card before-card">
+              <img src={assetUrl(experienceAssets.garage)} alt="Feder Bau early workshop" loading="lazy" />
+              <figcaption>{copy.beforeLabel}</figcaption>
+            </figure>
+            <figure className="before-after-card after-card">
+              <img src={assetUrl(experienceAssets.factory)} alt="Feder Bau factory" loading="lazy" />
+              <figcaption>{copy.afterLabel}</figcaption>
+            </figure>
+            <span className="before-after-orbit" />
+          </div>
         </div>
         <div className="experience-story-copy reveal-up">
           <SectionEyebrow>{copy.storyLabel}</SectionEyebrow>
@@ -184,6 +191,19 @@ export default function Experience() {
           “{copy.quote}”
           <cite>{copy.quoteAuthor}</cite>
         </blockquote>
+      </section>
+
+      <section className="section presentation-download">
+        <div className="presentation-download-card reveal-up">
+          <div>
+            <SectionEyebrow>PDF</SectionEyebrow>
+            <h2>{copy.presentationTitle}</h2>
+            <p>{copy.presentationText}</p>
+          </div>
+          <a href={assetUrl(experienceAssets.pdf)} className="button primary" target="_blank" rel="noreferrer">
+            {copy.secondaryCta}
+          </a>
+        </div>
       </section>
 
       <section
