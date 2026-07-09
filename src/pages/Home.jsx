@@ -125,7 +125,7 @@ export default function Home() {
 
       <section className="section about" id="about">
         <div className="about-media">
-          <img className="about-photo" src={assetUrl(siteImages.about.showroom)} alt={brandAlt} loading="lazy" />
+          <img className="about-photo" src={assetUrl(siteImages.about.home)} alt={brandAlt} loading="lazy" />
         </div>
         <div className="about-copy">
           <SectionEyebrow>1997</SectionEyebrow>
