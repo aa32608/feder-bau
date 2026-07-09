@@ -18,7 +18,7 @@ export default function Header() {
     { to: '/', key: 'home' },
     { to: '/products', key: 1 },
     { to: '/collections', key: 0 },
-    { to: '/about', key: 2 },
+    { to: '/experience', key: 2 },
     { to: '/contact', key: 4 },
   ]
 

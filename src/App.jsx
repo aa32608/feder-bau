@@ -5,6 +5,7 @@ import Home from './pages/Home'
 import Products from './pages/Products'
 import ProductDetail from './pages/ProductDetail'
 import Collections from './pages/Collections'
+import Experience from './pages/Experience'
 import About from './pages/About'
 import Contact from './pages/Contact'
 import NotFound from './pages/NotFound'
@@ -17,6 +18,7 @@ export default function App() {
         <Route path="products" element={<Products />} />
         <Route path="products/:slug" element={<ProductDetail />} />
         <Route path="collections" element={<Collections />} />
+        <Route path="experience" element={<Experience />} />
         <Route path="about" element={<About />} />
         <Route path="contact" element={<Contact />} />
         <Route path="*" element={<NotFound />} />

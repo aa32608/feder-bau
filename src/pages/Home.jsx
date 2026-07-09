@@ -11,7 +11,7 @@ const heroImages = [
   'assets/products/comfort.jpg',
 ]
 
-const heroTargets = ['/collections', '/about', '/products']
+const heroTargets = ['/collections', '/experience', '/products']
 
 function HeroCarousel({ slides, imageAlt }) {
   const [active, setActive] = useState(0)
@@ -143,7 +143,7 @@ export default function Home() {
             ))}
           </div>
           <div style={{ marginTop: '28px' }}>
-            <Link to="/about" className="button primary">{t.nav[2]} →</Link>
+            <Link to="/experience" className="button primary">{t.nav[2]} →</Link>
           </div>
         </div>
       </section>

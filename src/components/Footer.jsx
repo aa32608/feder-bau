@@ -65,7 +65,7 @@ export default function Footer() {
         </div>
         <div className="footer-links">
           <strong>{copy.company}</strong>
-          <Link to="/about">{t.nav[2]}</Link>
+          <Link to="/experience">{t.nav[2]}</Link>
           <Link to="/contact">{t.nav[3] || 'Showroom'}</Link>
           <Link to="/contact">{t.nav[4]}</Link>
           <Link to="/collections">{t.nav[0]}</Link>
