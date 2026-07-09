@@ -127,19 +127,13 @@ export default function Experience() {
         ))}
       </section>
 
-      <section className="section experience-capacity">
-        <div className="experience-capacity-copy reveal-up">
+      <section className="experience-photo-band reveal-up">
+        <img src={assetUrl(experienceAssets.aerial)} alt="Feder Bau factory aerial view" loading="lazy" />
+        <div className="photo-band-copy">
           <SectionEyebrow>6000 m²</SectionEyebrow>
           <h2>{copy.capacityTitle}</h2>
           <p>{copy.capacityText}</p>
         </div>
-        <div className="experience-capacity-media reveal-right">
-          <img src={assetUrl(experienceAssets.aerial)} alt="Feder Bau factory aerial view" loading="lazy" />
-        </div>
-      </section>
-
-      <section className="experience-full-bleed reveal-up">
-        <img src={assetUrl(experienceAssets.aerial)} alt="Feder Bau full factory view" loading="lazy" />
       </section>
 
       <section className="section experience-growth-section">
@@ -151,15 +145,12 @@ export default function Experience() {
         <GrowthChart copy={copy} />
       </section>
 
-      <section className="section experience-product-range">
-        <div className="experience-product-copy reveal-left">
+      <section className="experience-product-range reveal-up">
+        <img src={assetUrl(experienceAssets.productRange)} alt="Feder Bau product range" loading="lazy" />
+        <div className="experience-product-copy">
           <SectionEyebrow>Feder Bau</SectionEyebrow>
           <h2>{copy.productsTitle}</h2>
           <p>{copy.productsIntro}</p>
-        </div>
-        <div className="experience-product-visuals reveal-right">
-          <img src={assetUrl(experienceAssets.productRange)} alt="Feder Bau product range" loading="lazy" />
-          <img src={assetUrl(experienceAssets.mattressDetail)} alt="Feder Bau mattress detail" loading="lazy" />
         </div>
       </section>
 
@@ -181,9 +172,15 @@ export default function Experience() {
       </section>
 
       <section className="section experience-gallery">
-        <img className="reveal-left" src={assetUrl(experienceAssets.mattressDetail)} alt="Feder Bau mattress detail" loading="lazy" />
-        <img className="reveal-up" src={assetUrl(experienceAssets.bedroomCraft)} alt="Feder Bau bedroom craftsmanship" loading="lazy" />
-        <img className="reveal-right" src={assetUrl(experienceAssets.premiumBed)} alt="Feder Bau premium bed" loading="lazy" />
+        {[experienceAssets.mattressDetail, experienceAssets.bedroomCraft, experienceAssets.premiumBed].map((image, index) => (
+          <figure className="experience-photo-tile reveal-up" style={{ animationDelay: `${index * 0.08}s` }} key={image}>
+            <img src={assetUrl(image)} alt={copy.photoTiles[index].title} loading="lazy" />
+            <figcaption>
+              <h3>{copy.photoTiles[index].title}</h3>
+              <p>{copy.photoTiles[index].text}</p>
+            </figcaption>
+          </figure>
+        ))}
       </section>
 
       <section className="section experience-quote">
