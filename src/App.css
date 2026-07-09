@@ -1311,40 +1311,256 @@ input:focus, select:focus {
   box-shadow: var(--shadow);
 }
 
-.experience-showcase {
+.experience-full-bleed {
+  width: 100%;
+  min-height: clamp(360px, 58vw, 720px);
+  overflow: hidden;
+  background: var(--navy);
+}
+
+.experience-full-bleed img {
+  width: 100%;
+  height: 100%;
+  min-height: inherit;
+  object-fit: cover;
+  object-position: center;
+  filter: saturate(0.92) contrast(1.04);
+}
+
+.experience-growth-section {
   background: var(--paper);
 }
 
-.experience-showcase-grid {
+.growth-chart-card {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: clamp(24px, 4vw, 46px);
+  background: #fff;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+}
+
+.growth-chart-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 24px;
+  margin-bottom: 38px;
+}
+
+.growth-chart-head h3 {
+  margin-bottom: 8px;
+  font-size: clamp(1.5rem, 3vw, 2.4rem);
+}
+
+.growth-chart-head p {
+  margin-bottom: 0;
+  font-size: 0.98rem;
+}
+
+.growth-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+.growth-legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border: 1px solid var(--line);
+  background: var(--cream);
+  color: var(--ink-soft);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.growth-legend-item i {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.growth-legend-item.investments i,
+.growth-bar.investments { background: #7ea0ad; }
+.growth-legend-item.market i,
+.growth-bar.market { background: #c2a276; }
+.growth-legend-item.sales i,
+.growth-bar.sales { background: var(--navy); }
+
+.growth-chart {
+  display: grid;
+  grid-template-columns: 42px 1fr;
+  gap: 16px;
+  min-height: 420px;
+}
+
+.growth-axis {
+  display: grid;
+  grid-template-rows: repeat(7, 1fr);
+  color: var(--muted);
+  font-size: 0.78rem;
+  text-align: right;
+  padding-top: 4px;
+  padding-bottom: 44px;
+}
+
+.growth-plot {
+  position: relative;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 28px;
+  gap: clamp(20px, 5vw, 64px);
+  padding: 0 clamp(10px, 3vw, 32px) 0;
+  border-left: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
 }
 
-.experience-panel {
-  margin: 0;
+.growth-grid-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: rgba(0,0,0,0.06);
+}
+
+.growth-grid-line:nth-child(1) { top: 0%; }
+.growth-grid-line:nth-child(2) { top: 16.66%; }
+.growth-grid-line:nth-child(3) { top: 33.33%; }
+.growth-grid-line:nth-child(4) { top: 50%; }
+.growth-grid-line:nth-child(5) { top: 66.66%; }
+.growth-grid-line:nth-child(6) { top: 83.33%; }
+.growth-grid-line:nth-child(7) { top: 100%; }
+
+.growth-year {
+  position: relative;
+  z-index: 1;
   display: grid;
-  background: var(--cream);
-  border: 1px solid var(--line);
-  box-shadow: var(--shadow-sm);
-  overflow: hidden;
+  grid-template-rows: 1fr auto;
+  gap: 16px;
+  align-items: end;
+  text-align: center;
 }
 
-.experience-panel img {
+.growth-bars {
+  height: 340px;
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  gap: clamp(8px, 1.8vw, 18px);
+}
+
+.growth-bar-wrap {
+  position: relative;
+  width: clamp(38px, 5vw, 66px);
+  height: 100%;
+  display: flex;
+  align-items: end;
+  justify-content: center;
+}
+
+.growth-bar {
   width: 100%;
-  aspect-ratio: 16 / 10;
+  min-height: 8%;
+  border-radius: 12px 12px 0 0;
+  box-shadow: 0 12px 24px rgba(28,35,49,0.13);
+  transform-origin: bottom;
+  animation: growBar 0.95s ease both;
+}
+
+.growth-value {
+  position: absolute;
+  bottom: calc(var(--bar-height, 100%) + 10px);
+  transform: translateY(-4px);
+  color: var(--navy);
+  font-size: 0.8rem;
+  font-weight: 900;
+}
+
+.growth-year strong {
+  color: var(--navy);
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+}
+
+.experience-product-range {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  gap: clamp(34px, 6vw, 90px);
+  align-items: center;
+  background: var(--cream);
+}
+
+.experience-product-visuals {
+  display: grid;
+  gap: 20px;
+}
+
+.experience-product-visuals img {
+  width: 100%;
+  max-height: 420px;
   object-fit: contain;
   background: #fff;
-  padding: 14px;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-sm);
 }
 
-.experience-panel figcaption {
-  padding: 26px;
+.experience-product-visuals img:last-child {
+  object-fit: cover;
+  aspect-ratio: 16 / 6;
 }
 
-.experience-panel figcaption p {
-  margin-bottom: 0;
-  font-size: 0.96rem;
+.experience-hotels {
+  background: var(--paper);
+}
+
+.hotel-note {
+  display: inline-block;
+  margin-top: 10px;
+  color: var(--gold);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.hotel-logo-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.hotel-logo-card {
+  display: grid;
+  place-items: center;
+  gap: 18px;
+  min-height: 210px;
+  padding: 24px;
+  background: #fff;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-sm);
+  text-align: center;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.hotel-logo-card:hover {
+  transform: translateY(-7px);
+  box-shadow: var(--shadow);
+}
+
+.hotel-logo-card img {
+  width: 100%;
+  height: 110px;
+  object-fit: contain;
+}
+
+.hotel-logo-card strong {
+  color: var(--navy);
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
 }
 
 .experience-gallery {
@@ -1419,6 +1635,11 @@ input:focus, select:focus {
 @keyframes revealUp {
   from { opacity: 0; transform: translateY(26px); }
   to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes growBar {
+  from { transform: scaleY(0); opacity: 0.25; }
+  to { transform: scaleY(1); opacity: 1; }
 }
 
 @keyframes revealLeft {
@@ -1541,14 +1762,16 @@ footer {
   
   .contact,
   .experience-story,
-  .experience-capacity {
+  .experience-capacity,
+  .experience-product-range {
     grid-template-columns: 1fr;
   }
 
   .experience-stats,
   .experience-timeline,
   .experience-showcase-grid,
-  .experience-gallery {
+  .experience-gallery,
+  .hotel-logo-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -1587,7 +1810,8 @@ footer {
   .experience-stats,
   .experience-timeline,
   .experience-showcase-grid,
-  .experience-gallery {
+  .experience-gallery,
+  .hotel-logo-grid {
     grid-template-columns: 1fr;
   }
 
@@ -1814,5 +2038,11 @@ nav a.active-link::after {
   }
   .hide-mobile { display:none; }
   .collection-grid.large { grid-template-columns: 1fr; }
+  .growth-chart-head { flex-direction: column; }
+  .growth-legend { justify-content: flex-start; }
+  .growth-chart { grid-template-columns: 32px 1fr; }
+  .growth-plot { gap: 14px; padding-inline: 8px; }
+  .growth-bars { gap: 6px; height: 270px; }
+  .growth-bar-wrap { width: clamp(24px, 7vw, 42px); }
 }
 

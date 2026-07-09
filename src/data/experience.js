@@ -15,10 +15,14 @@ export const experienceContent = {
     capacityText: 'Feder Bau është kompani e njohur për prodhimin e dyshekëve cilësorë. Me një fabrikë 6000 m² dhe linjë moderne prodhimi, kompania ka kapacitet të prodhojë deri në 200 dyshekë në ditë.',
     growthTitle: 'Rritje e qëndrueshme',
     growthIntro: 'Investimet, tregu dhe shitjet tregojnë një trajektore të qartë zhvillimi për vitet 2023–2025.',
+    growthChartTitle: 'Të dhënat e rritjes 2023–2025',
+    growthChartSubtitle: 'Vizualizim i qartë bazuar në grafikun e prezantimit Feder Bau.',
+    growthLabels: { investments: 'Investime', market: 'Tregu', sales: 'Shitje' },
     productsTitle: 'Më shumë se dyshekë',
     productsIntro: 'Përvoja Feder Bau përfshin krevatë, boxspring beds, dyshekë dhe topper-a — zgjidhje të plota për gjumë më të mirë.',
     hotelsTitle: 'Referenca hoteliere',
     hotelsIntro: 'Feder Bau bashkëpunon me hotele dhe ambiente mikpritjeje që kërkojnë rehati të qëndrueshme, cilësi dhe besueshmëri.',
+    hotelsNote: 'Referenca nga prezantimi zyrtar — dhe shumë të tjera.',
     quote: 'Mundësitë e biznesit janë si autobusët. Gjithmonë vjen një tjetër.',
     quoteAuthor: 'Richard Branson',
     closingTitle: 'Gjithçka për gjumë më të mirë',
@@ -52,10 +56,14 @@ export const experienceContent = {
     capacityText: 'Feder Bau е позната компанија за производство на висококвалитетни душеци. Со фабрика од 6000 m² и модерна производна линија, компанијата има капацитет да произведе до 200 душеци дневно.',
     growthTitle: 'Стабилен раст',
     growthIntro: 'Инвестициите, пазарот и продажбата покажуваат јасна развојна траекторија за периодот 2023–2025.',
+    growthChartTitle: 'Податоци за раст 2023–2025',
+    growthChartSubtitle: 'Јасна визуелизација базирана на графиконот од Feder Bau презентацијата.',
+    growthLabels: { investments: 'Инвестиции', market: 'Пазар', sales: 'Продажба' },
     productsTitle: 'Повеќе од душеци',
     productsIntro: 'Feder Bau искуството вклучува кревети, boxspring кревети, душеци и topper-и — целосни решенија за подобар сон.',
     hotelsTitle: 'Хотелски референци',
     hotelsIntro: 'Feder Bau соработува со хотели и угостителски објекти кои бараат трајна удобност, квалитет и доверливост.',
+    hotelsNote: 'Референци од официјалната презентација — и многу други.',
     quote: 'Бизнис можностите се како автобуси. Секогаш доаѓа уште еден.',
     quoteAuthor: 'Richard Branson',
     closingTitle: 'Сè за подобар сон',
@@ -89,10 +97,14 @@ export const experienceContent = {
     capacityText: 'Feder Bau is a highly renowned company specializing in top-quality mattress production. With a spacious 6000 sqm factory and a modern production line, the company can produce up to 200 mattresses every day.',
     growthTitle: 'Areas of growth',
     growthIntro: 'Investments, market, and sales show a clear development path across 2023–2025.',
+    growthChartTitle: 'Growth data 2023–2025',
+    growthChartSubtitle: 'A clearer visualization based on the chart from the Feder Bau presentation.',
+    growthLabels: { investments: 'Investments', market: 'Market', sales: 'Sales' },
     productsTitle: 'More than mattresses',
     productsIntro: 'The Feder Bau experience includes beds, boxspring beds, mattresses, and toppers — complete solutions for better sleep.',
     hotelsTitle: 'Hotel references',
     hotelsIntro: 'Feder Bau works with hotels and hospitality spaces that require durable comfort, quality, and reliability.',
+    hotelsNote: 'References from the official presentation — and many more.',
     quote: 'Business opportunities are like buses. There’s always another one coming.',
     quoteAuthor: 'Richard Branson',
     closingTitle: 'Everything for a better sleep',
@@ -111,6 +123,24 @@ export const experienceContent = {
     ],
   },
 }
+
+
+export const growthData = [
+  { year: '2023', investments: 5.0, market: 6.0, sales: 8.1 },
+  { year: '2024', investments: 7.8, market: 8.4, sales: 9.9 },
+  { year: '2025', investments: 7.99, market: 8.8, sales: 10.7 },
+]
+
+export const hotelReferences = [
+  { name: 'Aurora Resort & Spa', logo: 'assets/experience/hotels/aurora-resort-spa.png' },
+  { name: 'Izgrev Spa & Aquapark', logo: 'assets/experience/hotels/izgrev-spa-aquapark.png' },
+  { name: 'Sirius Hotel', logo: 'assets/experience/hotels/sirius-hotel.png' },
+  { name: 'Mirage Hotel & Spa', logo: 'assets/experience/hotels/mirage-hotel-spa.png' },
+  { name: 'Mercure Hotels', logo: 'assets/experience/hotels/mercure-hotels.png' },
+  { name: 'ibis / ibis Styles', logo: 'assets/experience/hotels/ibis-hotels.png' },
+  { name: 'Scardus Hotel & Spa', logo: 'assets/experience/hotels/scardus-hotel-spa.png' },
+  { name: 'Marriott', logo: 'assets/experience/hotels/marriott.png' },
+]
 
 export const experienceAssets = {
   hero: 'assets/experience/factory-panorama.jpg',

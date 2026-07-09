@@ -1,8 +1,60 @@
 import { Link } from 'react-router-dom'
 import { useLanguage } from '../context/LanguageContext'
-import { experienceAssets, experienceContent } from '../data/experience'
+import { experienceAssets, experienceContent, growthData, hotelReferences } from '../data/experience'
 import { SectionEyebrow } from '../components/UI'
 import { assetUrl } from '../utils/assets'
+
+const growthKeys = ['investments', 'market', 'sales']
+const maxGrowth = 11
+
+function GrowthChart({ copy }) {
+  return (
+    <div className="growth-chart-card reveal-up">
+      <div className="growth-chart-head">
+        <div>
+          <h3>{copy.growthChartTitle}</h3>
+          <p>{copy.growthChartSubtitle}</p>
+        </div>
+        <div className="growth-legend">
+          {growthKeys.map((key) => (
+            <span key={key} className={`growth-legend-item ${key}`}>
+              <i /> {copy.growthLabels[key]}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      <div className="growth-chart" aria-label={copy.growthChartTitle}>
+        <div className="growth-axis">
+          {[12, 10, 8, 6, 4, 2, 0].map((tick) => <span key={tick}>{tick}</span>)}
+        </div>
+        <div className="growth-plot">
+          {[12, 10, 8, 6, 4, 2, 0].map((tick) => <span className="growth-grid-line" key={tick} />)}
+          {growthData.map((year) => (
+            <div className="growth-year" key={year.year}>
+              <div className="growth-bars">
+                {growthKeys.map((key) => (
+                  <div
+                    className="growth-bar-wrap"
+                    key={key}
+                    style={{ '--bar-height': `${(year[key] / maxGrowth) * 100}%` }}
+                  >
+                    <span className="growth-value">{year[key]}</span>
+                    <span
+                      className={`growth-bar ${key}`}
+                      style={{ height: `${(year[key] / maxGrowth) * 100}%` }}
+                    />
+                  </div>
+                ))}
+              </div>
+              <strong>{year.year}</strong>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  )
+}
 
 export default function Experience() {
   const { language } = useLanguage()
@@ -79,30 +131,45 @@ export default function Experience() {
         </div>
       </section>
 
-      <section className="section experience-showcase">
+      <section className="experience-full-bleed reveal-up">
+        <img src={assetUrl(experienceAssets.aerial)} alt="Feder Bau full factory view" loading="lazy" />
+      </section>
+
+      <section className="section experience-growth-section">
         <div className="section-heading centered reveal-up">
           <SectionEyebrow>{copy.growthTitle}</SectionEyebrow>
           <h2>{copy.growthTitle}</h2>
           <p>{copy.growthIntro}</p>
         </div>
-        <div className="experience-showcase-grid">
-          <figure className="experience-panel reveal-left">
-            <img src={assetUrl(experienceAssets.growthChart)} alt="Feder Bau areas of growth chart" loading="lazy" />
-          </figure>
-          <figure className="experience-panel reveal-up">
-            <img src={assetUrl(experienceAssets.productRange)} alt="Feder Bau product range" loading="lazy" />
-            <figcaption>
-              <h3>{copy.productsTitle}</h3>
-              <p>{copy.productsIntro}</p>
-            </figcaption>
-          </figure>
-          <figure className="experience-panel reveal-right">
-            <img src={assetUrl(experienceAssets.hotelReferences)} alt="Feder Bau hotel references" loading="lazy" />
-            <figcaption>
-              <h3>{copy.hotelsTitle}</h3>
-              <p>{copy.hotelsIntro}</p>
-            </figcaption>
-          </figure>
+        <GrowthChart copy={copy} />
+      </section>
+
+      <section className="section experience-product-range">
+        <div className="experience-product-copy reveal-left">
+          <SectionEyebrow>Feder Bau</SectionEyebrow>
+          <h2>{copy.productsTitle}</h2>
+          <p>{copy.productsIntro}</p>
+        </div>
+        <div className="experience-product-visuals reveal-right">
+          <img src={assetUrl(experienceAssets.productRange)} alt="Feder Bau product range" loading="lazy" />
+          <img src={assetUrl(experienceAssets.mattressDetail)} alt="Feder Bau mattress detail" loading="lazy" />
+        </div>
+      </section>
+
+      <section className="section experience-hotels">
+        <div className="section-heading centered reveal-up">
+          <SectionEyebrow>{copy.hotelsTitle}</SectionEyebrow>
+          <h2>{copy.hotelsTitle}</h2>
+          <p>{copy.hotelsIntro}</p>
+          <span className="hotel-note">{copy.hotelsNote}</span>
+        </div>
+        <div className="hotel-logo-grid">
+          {hotelReferences.map((hotel, index) => (
+            <article className="hotel-logo-card reveal-up" style={{ animationDelay: `${index * 0.05}s` }} key={hotel.name}>
+              <img src={assetUrl(hotel.logo)} alt={hotel.name} loading="lazy" />
+              <strong>{hotel.name}</strong>
+            </article>
+          ))}
         </div>
       </section>
 
