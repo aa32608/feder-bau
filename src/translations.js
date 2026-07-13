@@ -157,6 +157,7 @@ export const categoryLabels = {
   memory: { en: 'Memory Foam', sq: 'Memory foam', mk: 'Memory foam' },
   orthopedic: { en: 'Orthopedic', sq: 'Ortopedikë', mk: 'Ортопедски' },
   premium: { en: 'Premium', sq: 'Premium', mk: 'Премиум' },
+  topper: { en: 'Mattress Toppers', sq: 'Topera dysheku', mk: 'Топери за душек' },
 };
 
 const tr = (value, language = 'en') => {
@@ -348,6 +349,132 @@ export const products = [
       { en: 'Polio flexible hard foam', sq: 'Shkumë fleksibile e fortë Polio', mk: 'Polio флексибилна тврда пена' },
     ],
   },
+  {
+    name: 'Memory Toper',
+    slug: 'memory-toper',
+    image: 'assets/products/memory-toper.jpg',
+    height: '5 cm',
+    categoryKey: 'topper',
+    price: null,
+    detail: {
+      en: '5 cm memory-foam topper with lanolin microfiber fabric and MyForm comfort layer.',
+      sq: 'Toper 5 cm me memory foam, pëlhurë mikrofibër lanolinë dhe shtresë komforti MyForm.',
+      mk: 'Топер од 5 cm со memory foam, ланолин микрофибер ткаенина и MyForm комфортен слој.',
+    },
+    description: {
+      en: 'Memory Toper is a slim 5 cm Feder Bau mattress topper designed to refresh an existing mattress with adaptive comfort. It uses lanolin polyester microfiber fabric, highly breathable materials, organic cotton, and MyForm memory foam to create a softer, more body-contouring sleep surface without replacing the full mattress.',
+      sq: 'Memory Toper është toper i hollë 5 cm Feder Bau, i krijuar për të rifreskuar një dyshek ekzistues me rehati adaptive. Përdor pëlhurë mikrofibër poliestër lanolinë, materiale shumë të ajrosshme, pambuk organik dhe shkumë MyForm memory për të krijuar sipërfaqe gjumi më të butë dhe që përshtatet me trupin, pa zëvendësuar dyshekun e plotë.',
+      mk: 'Memory Toper е тенок топер од 5 cm на Feder Bau, создаден да го освежи постоечкиот душек со адаптивна удобност. Користи ланолин полиестерска микрофибер ткаенина, високо дишливи материјали, органски памук и MyForm memory пена за помека површина за спиење што го следи телото, без целосна замена на душекот.',
+    },
+    materials: [
+      { en: 'Lanolin polyester microfiber fabric', sq: 'Pëlhurë mikrofibër poliestër lanolinë', mk: 'Ланолин полиестерска микрофибер ткаенина' },
+      { en: 'Highly breathable fabric', sq: 'Pëlhurë shumë e ajrosshme', mk: 'Високо дишлива ткаенина' },
+      { en: 'Organic cotton', sq: 'Pambuk organik', mk: 'Органски памук' },
+      { en: 'MyForm memori foam', sq: 'Shkumë MyForm memori', mk: 'MyForm memori пена' },
+    ],
+  },
+  {
+    name: 'Dreamer Toper',
+    slug: 'dreamer-toper',
+    image: 'assets/products/dreamer-toper.jpg',
+    height: '10 cm',
+    categoryKey: 'topper',
+    price: null,
+    detail: {
+      en: '10 cm premium topper with Tencel microfiber fabric, Polio Soft foam, and Myform memory foam.',
+      sq: 'Toper premium 10 cm me pëlhurë mikrofibër Tencel, shkumë Polio Soft dhe Myform memory foam.',
+      mk: 'Премиум топер од 10 cm со Tencel микрофибер ткаенина, Polio Soft пена и Myform memory foam.',
+    },
+    description: {
+      en: 'Dreamer Toper is a thicker 10 cm Feder Bau topper built for a more luxurious comfort upgrade. It combines Tencel and polyester microfiber fabric with highly breathable layers, organic cotton, Polio Soft foam, and Myform memory foam. The taller profile adds plush cushioning while keeping the surface soft and adaptive.',
+      sq: 'Dreamer Toper është toper më i trashë 10 cm Feder Bau, i ndërtuar për përmirësim më luksoz të rehatisë. Kombinon pëlhurë mikrofibër Tencel dhe poliestër me shtresa shumë të ajrosshme, pambuk organik, shkumë Polio Soft dhe Myform memory foam. Profili më i lartë shton jastëkim të butë, duke mbajtur sipërfaqen të butë dhe adaptive.',
+      mk: 'Dreamer Toper е подебел топер од 10 cm на Feder Bau, изграден за поуксусно подобрување на удобноста. Комбинира Tencel и полиестерска микрофибер ткаенина со високо дишливи слоеви, органски памук, Polio Soft пена и Myform memory foam. Повисокиот профил додава мека подлога, задржувајќи ја површината мека и адаптивна.',
+    },
+    materials: [
+      { en: 'Tencel and polyester microfiber fabric', sq: 'Pëlhurë mikrofibër Tencel dhe poliestër', mk: 'Tencel и полиестерска микрофибер ткаенина' },
+      { en: 'Highly breathable fabric', sq: 'Pëlhurë shumë e ajrosshme', mk: 'Високо дишлива ткаенина' },
+      { en: 'Organic cotton', sq: 'Pambuk organik', mk: 'Органски памук' },
+      { en: 'Polio Soft foam', sq: 'Shkumë Polio Soft', mk: 'Polio Soft пена' },
+      { en: 'Myform Memori foam', sq: 'Shkumë Myform Memori', mk: 'Myform Memori пена' },
+    ],
+  },
+  {
+    name: 'Silent',
+    slug: 'silent',
+    image: 'assets/products/silent.jpg',
+    height: '25 cm',
+    categoryKey: 'memory',
+    price: null,
+    detail: {
+      en: '25 cm memory mattress with Silver Care microfiber fabric, Myform memory foam, and high-resilience support.',
+      sq: 'Dyshek memory 25 cm me pëlhurë mikrofibër Silver Care, Myform memory foam dhe mbështetje me reziliencë të lartë.',
+      mk: 'Memory душек од 25 cm со Silver Care микрофибер ткаенина, Myform memory foam и високоеластична поддршка.',
+    },
+    description: {
+      en: 'Silent is a 25 cm Feder Bau mattress designed for quiet comfort and adaptive support. Its Silver Care and polyester microfiber fabric pairs with highly breathable layers, organic cotton, Myform memory foam, and high-resilience foam. The result is a balanced memory mattress that contours the body while keeping a stable, supportive feel.',
+      sq: 'Silent është dyshek 25 cm Feder Bau i krijuar për rehati të qetë dhe mbështetje adaptive. Pëlhura Silver Care dhe mikrofibër poliestër kombinohet me shtresa shumë të ajrosshme, pambuk organik, Myform memory foam dhe shkumë me reziliencë të lartë. Rezultati është dyshek memory i balancuar që përshtatet me trupin dhe ruan ndjesi stabile mbështetëse.',
+      mk: 'Silent е душек од 25 cm на Feder Bau, создаден за тивка удобност и адаптивна поддршка. Silver Care и полиестерската микрофибер ткаенина се комбинираат со високо дишливи слоеви, органски памук, Myform memory foam и високоеластична пена. Резултатот е балансиран memory душек што го следи телото и задржува стабилно поддржувачко чувство.',
+    },
+    materials: [
+      { en: 'Silver Care and polyester microfiber fabric', sq: 'Pëlhurë Silver Care dhe mikrofibër poliestër', mk: 'Silver Care и полиестерска микрофибер ткаенина' },
+      { en: 'Highly breathable fabric', sq: 'Pëlhurë shumë e ajrosshme', mk: 'Високо дишлива ткаенина' },
+      { en: 'Organic cotton', sq: 'Pambuk organik', mk: 'Органски памук' },
+      { en: 'Myform Memori foam', sq: 'Shkumë Myform Memori', mk: 'Myform Memori пена' },
+      { en: 'High Resilience foam', sq: 'Shkumë me reziliencë të lartë', mk: 'Високоеластична пена' },
+    ],
+  },
+  {
+    name: 'Relax',
+    slug: 'relax',
+    image: 'assets/products/relax.jpg',
+    height: '22 cm',
+    categoryKey: 'spring',
+    price: null,
+    detail: {
+      en: '22 cm Bonell Hercul spring mattress with lanolin microfiber fabric and multi-layer foam comfort.',
+      sq: 'Dyshek 22 cm me susta Bonell Hercul, pëlhurë mikrofibër lanolinë dhe komfort me shtresa shkume.',
+      mk: 'Душек од 22 cm со Bonell Hercul пружини, ланолин микрофибер ткаенина и комфор од повеќе слоеви пена.',
+    },
+    description: {
+      en: 'Relax is a 22 cm Feder Bau spring mattress built for everyday comfort with a soft surface and reliable support. It combines lanolin polyester microfiber fabric, highly breathable materials, organic cotton, one layer of hard felt, Polio Soft foam, multi inner filling foam, and Bonell Hercul springs. This construction gives the model a classic spring feel with added cushioning layers.',
+      sq: 'Relax është dyshek me susta 22 cm Feder Bau, i ndërtuar për rehati të përditshme me sipërfaqe të butë dhe mbështetje të besueshme. Kombinon pëlhurë mikrofibër poliestër lanolinë, materiale shumë të ajrosshme, pambuk organik, një shtresë felt të fortë, shkumë Polio Soft, shkumë mbushëse të brendshme dhe susta Bonell Hercul. Ky konstruksion i jep modelit ndjesi klasike me susta dhe shtresa shtesë jastëkimi.',
+      mk: 'Relax е пружински душек од 22 cm на Feder Bau, изграден за секојдневна удобност со мека површина и сигурна поддршка. Комбинира ланолин полиестерска микрофибер ткаенина, високо дишливи материјали, органски памук, еден слој тврд филц, Polio Soft пена, внатрешна полначка пена и Bonell Hercul пружини. Оваа конструкција му дава на моделот класично пружинско чувство со дополнителни слоеви за мекост.',
+    },
+    materials: [
+      { en: 'Lanolin polyester microfiber fabric', sq: 'Pëlhurë mikrofibër poliestër lanolinë', mk: 'Ланолин полиестерска микрофибер ткаенина' },
+      { en: 'Highly breathable fabric', sq: 'Pëlhurë shumë e ajrosshme', mk: 'Високо дишлива ткаенина' },
+      { en: 'Organic cotton', sq: 'Pambuk organik', mk: 'Органски памук' },
+      { en: 'One layer hard felt', sq: 'Një shtresë felt i fortë', mk: 'Еден слој тврд филц' },
+      { en: 'Polio Soft foam', sq: 'Shkumë Polio Soft', mk: 'Polio Soft пена' },
+      { en: 'Multi inner filling foam', sq: 'Shkumë mbushëse e brendshme', mk: 'Внатрешна полначка пена' },
+      { en: 'Bonell Hercul Spring', sq: 'Susta Bonell Hercul', mk: 'Bonell Hercul пружини' },
+    ],
+  },
+  {
+    name: 'Hyperflex',
+    slug: 'hyperflex',
+    image: 'assets/products/hyperflex.jpg',
+    height: '22 cm',
+    categoryKey: 'foam',
+    price: null,
+    detail: {
+      en: '22 cm foam mattress with cashmere microfiber fabric, MyForm Air foam, and high-resilience support.',
+      sq: 'Dyshek me shkumë 22 cm, pëlhurë mikrofibër cashmere, MyForm Air foam dhe mbështetje me reziliencë të lartë.',
+      mk: 'Душек од пена од 22 cm со cashmere микрофибер ткаенина, MyForm Air foam и високоеластична поддршка.',
+    },
+    description: {
+      en: 'Hyperflex is a 22 cm Feder Bau foam mattress created for flexible comfort and strong resilience. It uses cashmere and polyester microfiber fabric, organic cotton, highly breathable materials, MyForm Air foam, and high-resilience foam. The airy foam structure is designed to feel responsive and supportive while keeping the sleep surface soft and breathable.',
+      sq: 'Hyperflex është dyshek me shkumë 22 cm Feder Bau, i krijuar për rehati fleksibile dhe reziliencë të fortë. Përdor pëlhurë mikrofibër cashmere dhe poliestër, pambuk organik, materiale shumë të ajrosshme, shkumë MyForm Air dhe shkumë me reziliencë të lartë. Struktura e ajrosshme e shkumës është menduar për ndjesi responsive dhe mbështetëse, duke mbajtur sipërfaqen e gjumit të butë dhe të ajrosshme.',
+      mk: 'Hyperflex е душек од пена од 22 cm на Feder Bau, создаден за флексибилна удобност и силна еластичност. Користи cashmere и полиестерска микрофибер ткаенина, органски памук, високо дишливи материјали, MyForm Air пена и високоеластична пена. Воздушната структура на пената е дизајнирана за одзивно и поддржувачко чувство, задржувајќи ја површината за спиење мека и дишлива.',
+    },
+    materials: [
+      { en: 'Cashmere and polyester microfiber fabric', sq: 'Pëlhurë mikrofibër cashmere dhe poliestër', mk: 'Cashmere и полиестерска микрофибер ткаенина' },
+      { en: 'Organic cotton', sq: 'Pambuk organik', mk: 'Органски памук' },
+      { en: 'Highly breathable fabric', sq: 'Pëlhurë shumë e ajrosshme', mk: 'Високо дишлива ткаенина' },
+      { en: 'MyForm Air foam', sq: 'Shkumë MyForm Air', mk: 'MyForm Air пена' },
+      { en: 'High Resilience foam', sq: 'Shkumë me reziliencë të lartë', mk: 'Високоеластична пена' },
+    ],
+  },
 ];
 
 export const getLocalizedProduct = (product, language = 'en') => ({
@@ -395,6 +522,6 @@ export const getLocalizedCollections = (language = 'en') => collections.map((col
 
 export const stats = [
   { value: '1997', label: { sq: 'Themeluar', mk: 'Основани', en: 'Established' } },
-  { value: '7', label: { sq: 'Modele të katalogut', mk: 'Каталошки модели', en: 'Catalog Models' } },
+  { value: '12', label: { sq: 'Modele të katalogut', mk: 'Каталошки модели', en: 'Catalog Models' } },
   { value: '100%', label: { sq: 'Përkushtim', mk: 'Посветеност', en: 'Dedication' } },
 ];
