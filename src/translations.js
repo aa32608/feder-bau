@@ -488,6 +488,84 @@ export const products = [
     ],
   },
 
+  {
+    name: 'Duocell',
+    slug: 'duocell',
+    image: 'assets/products/duocell.jpg',
+    height: '20 cm',
+    categoryKey: 'foam',
+    price: null,
+    detail: {
+      en: '20 cm foam mattress with lanolin microfiber fabric, organic cotton, Polio Soft foam, and Polio flexible hard foam.',
+      sq: 'Dyshek me shkumë 20 cm me pëlhurë mikrofibër poliestër lanolinë, pambuk organik, shkumë Polio Soft dhe shkumë fleksibile të fortë Polio.',
+      mk: 'Душек од пена од 20 cm со ланолин полиестерска микрофибер ткаенина, органски памук, Polio Soft пена и Polio флексибилна тврда пена.',
+    },
+    description: {
+      en: 'Duocell is a 20 cm Feder Bau foam mattress designed for balanced comfort and reliable support. It uses lanolin polyester microfiber fabric, highly breathable materials, organic cotton, Polio Soft foam, and Polio flexible hard foam. The construction creates a stable foam core with a soft, breathable surface for everyday sleep.',
+      sq: 'Duocell është dyshek me shkumë 20 cm Feder Bau, i krijuar për rehati të balancuar dhe mbështetje të besueshme. Përdor pëlhurë mikrofibër poliestër lanolinë, materiale shumë të ajrosshme, pambuk organik, shkumë Polio Soft dhe shkumë fleksibile të fortë Polio. Konstruksioni krijon një bërthamë të qëndrueshme me shkumë dhe sipërfaqe të butë dhe të ajrosshme për gjumë të përditshëm.',
+      mk: 'Duocell е душек од пена од 20 cm на Feder Bau, дизајниран за балансирана удобност и сигурна поддршка. Користи ланолин полиестерска микрофибер ткаенина, високо дишливи материјали, органски памук, Polio Soft пена и Polio флексибилна тврда пена. Конструкцијата создава стабилна пена во јадрото со мека и дишлива површина за секојдневно спиење.',
+    },
+    materials: [
+      { en: 'Lanolin polyester microfiber fabric', sq: 'Pëlhurë mikrofibër poliestër lanolinë', mk: 'Ланолин полиестерска микрофибер ткаенина' },
+      { en: 'Highly breathable fabric', sq: 'Pëlhurë shumë e ajrosshme', mk: 'Високо дишлива ткаенина' },
+      { en: 'Organic cotton', sq: 'Pambuk organik', mk: 'Органски памук' },
+      { en: 'Polio Soft foam', sq: 'Shkumë Polio Soft', mk: 'Polio Soft пена' },
+      { en: 'Polio flexible hard foam', sq: 'Shkumë fleksibile e fortë Polio', mk: 'Polio флексибилна тврда пена' },
+    ],
+  },
+
+  {
+    name: 'Dreamer',
+    slug: 'dreamer',
+    image: 'assets/products/dreamer.jpg',
+    height: '27 cm',
+    categoryKey: 'premium',
+    price: null,
+    detail: {
+      en: '27 cm premium mattress with Silver Care microfiber fabric, Dual Technology Pocket Spring, and multi-layer foam comfort.',
+      sq: 'Dyshek premium 27 cm me pëlhurë mikrofibër Silver Care, Dual Technology Pocket Spring dhe komfort me shtresa shkume.',
+      mk: 'Премиум душек од 27 cm со Silver Care микрофибер ткаенина, Dual Technology Pocket Spring и комфор од повеќе слоеви пена.',
+    },
+    description: {
+      en: 'Dreamer is a 27 cm Feder Bau premium mattress that combines plush comfort with advanced pocket-spring support. It features Silver Care and polyester microfiber fabric, highly breathable layers, organic cotton, Polio Soft foam, Polio flexible hard foam, and Dual Technology Pocket Spring. The result is a responsive, adaptive sleep surface with strong underlying support.',
+      sq: 'Dreamer është dyshek premium 27 cm Feder Bau që kombinon komfort të butë me mbështetje të avancuar pocket-spring. Karakterizohet nga pëlhurë mikrofibër Silver Care dhe poliestër, shtresa shumë të ajrosshme, pambuk organik, shkumë Polio Soft, shkumë fleksibile të fortë Polio dhe Dual Technology Pocket Spring. Rezultati është një sipërfaqe gjumi responsive dhe adaptive me mbështetje të fortë nënfaqësore.',
+      mk: 'Dreamer е премиум душек од 27 cm на Feder Bau што комбинира мек комфор со напредна pocket-spring поддршка. Има Silver Care и полиестерска микрофибер ткаенина, високо дишливи слоеви, органски памук, Polio Soft пена, Polio флексибилна тврда пена и Dual Technology Pocket Spring. Резултатот е одзивна и адаптивна површина за спиење со силна поддршка од подолу.',
+    },
+    materials: [
+      { en: 'Silver Care and polyester microfiber fabric', sq: 'Pëlhurë Silver Care dhe mikrofibër poliestër', mk: 'Silver Care и полиестерска микрофибер ткаенина' },
+      { en: 'Highly breathable fabric', sq: 'Pëlhurë shumë e ajrosshme', mk: 'Високо дишлива ткаенина' },
+      { en: 'Organic cotton', sq: 'Pambuk organik', mk: 'Органски памук' },
+      { en: 'Polio Soft foam', sq: 'Shkumë Polio Soft', mk: 'Polio Soft пена' },
+      { en: 'Polio flexible hard foam', sq: 'Shkumë fleksibile e fortë Polio', mk: 'Polio флексибилна тврда пена' },
+      { en: 'Dual Technology Pocket Spring', sq: 'Susta pocket Dual Technology', mk: 'Dual Technology Pocket Spring' },
+    ],
+  },
+
+  {
+    name: 'Memory Toper',
+    slug: 'memory-toper',
+    image: 'assets/products/memory-toper.jpg',
+    height: '5 cm',
+    categoryKey: 'topper',
+    price: null,
+    detail: {
+      en: '5 cm memory topper with lanolin microfiber fabric, organic cotton, and MyForm memory foam.',
+      sq: 'Toper memory 5 cm me pëlhurë mikrofibër lanolinë, pambuk organik dhe MyForm memory foam.',
+      mk: 'Memory топер од 5 cm со ланолин микрофибер ткаенина, органски памук и MyForm memory foam.',
+    },
+    description: {
+      en: 'Memory Toper is a 5 cm Feder Bau topper designed to add adaptive memory comfort to any mattress. It uses lanolin polyester microfiber fabric, highly breathable layers, organic cotton, and Myform Memori foam. The slim profile is ideal for customers who want a subtle memory-foam enhancement without a tall build.',
+      sq: 'Memory Toper është topper 5 cm Feder Bau, i krijuar për të shtuar rehati adaptive memory në çdo dyshek. Përdor pëlhurë mikrofibër poliestër lanolinë, shtresa shumë të ajrosshme, pambuk organik dhe Myform Memori foam. Profili i hollë është ideal për klientë që duan një përmirësim të butë memory foam pa ndërtim të lartë.',
+      mk: 'Memory Toper е топер од 5 cm на Feder Bau, дизајниран да додаде адаптивна memory удобност на секој душек. Користи ланолин полиестерска микрофибер ткаенина, високо дишливи слоеви, органски памук и Myform Memori пена. Тенкиот профил е идеален за купувачи кои сакаат суптилно memory-foam подобрување без висока конструкција.',
+    },
+    materials: [
+      { en: 'Lanolin polyester microfiber fabric', sq: 'Pëlhurë mikrofibër poliestër lanolinë', mk: 'Ланолин полиестерска микрофибер ткаенина' },
+      { en: 'Highly breathable fabric', sq: 'Pëlhurë shumë e ajrosshme', mk: 'Високо дишлива ткаенина' },
+      { en: 'Organic cotton', sq: 'Pambuk organik', mk: 'Органски памук' },
+      { en: 'Myform Memori foam', sq: 'Shkumë Myform Memori', mk: 'Myform Memori пена' },
+    ],
+  },
+
 ];
 
 export const getLocalizedProduct = (product, language = 'en') => ({
