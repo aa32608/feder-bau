@@ -15,6 +15,7 @@ export default function Collections() {
         eyebrow={t.nav[0]}
         title={t.collectionsTitle}
         text={t.collectionsIntro}
+        backgroundImage="assets/cover/DSC02877.jpg"
       />
 
       <section className="section collections" style={{paddingTop: '40px'}}>
