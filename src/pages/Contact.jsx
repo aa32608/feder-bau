@@ -1,6 +1,7 @@
 import { useSearchParams } from 'react-router-dom'
 import { useLanguage } from '../context/LanguageContext'
 import { getLocalizedProducts } from '../translations'
+import { siteImages } from '../data/siteImages'
 import { PageHero, SectionEyebrow } from '../components/UI'
 
 const showroomMapsUrl =
@@ -94,7 +95,7 @@ export default function Contact() {
         eyebrow={copy.eyebrow}
         title={t.contactTitle}
         text={t.contactIntro}
-        backgroundImage="assets/cover/DSC03039.jpg"
+        backgroundImage={siteImages.pageBackgrounds.contact}
       />
 
       <section className="section contact">
