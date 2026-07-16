@@ -36,13 +36,20 @@ export function SectionEyebrow({ children }) {
   return <p className="eyebrow">{children}</p>
 }
 
-export function PageHero({ eyebrow, title, text }) {
+export function PageHero({ eyebrow, title, text, backgroundImage }) {
+  const style = backgroundImage ? {
+    backgroundImage: `linear-gradient(rgba(28, 35, 49, 0.75), rgba(28, 35, 49, 0.75)), url(${assetUrl(backgroundImage)})`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    color: '#fff'
+  } : {};
+
   return (
-    <section className="page-hero">
+    <section className="page-hero" style={style}>
       <div className="page-hero-inner">
         {eyebrow && <SectionEyebrow>{eyebrow}</SectionEyebrow>}
-        <h1>{title}</h1>
-        {text && <p>{text}</p>}
+        <h1 style={backgroundImage ? {color: '#fff'} : {}}>{title}</h1>
+        {text && <p style={backgroundImage ? {color: 'rgba(255,255,255,0.9)'} : {}}>{text}</p>}
       </div>
     </section>
   )

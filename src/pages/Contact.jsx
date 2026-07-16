@@ -94,6 +94,7 @@ export default function Contact() {
         eyebrow={copy.eyebrow}
         title={t.contactTitle}
         text={t.contactIntro}
+        backgroundImage="assets/cover/DSC03039.jpg"
       />
 
       <section className="section contact">
