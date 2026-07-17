@@ -1,6 +1,6 @@
 # Feder Bau
 
-Demo website – Feder Bau mattress showroom, Golema Reçica, Tetovo, North Macedonia.
+Demo website – Feder Bau mattress showroom, Reçicë e Madhe, Tetovo, North Macedonia.
 
 Live: **https://aa32608.github.io/feder-bau/**
 
