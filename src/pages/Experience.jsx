@@ -37,8 +37,12 @@ function GrowthChart({ copy }) {
                   <div
                     className="growth-bar-wrap"
                     key={key}
-                    style={{ '--bar-height': `${(year[key] / maxGrowth) * 100}%` }}
+                    style={{
+                      '--bar-height': `${(year[key] / maxGrowth) * 100}%`,
+                      '--bar-size': `${(year[key] / maxGrowth) * 100}%`,
+                    }}
                   >
+                    <span className="growth-series-label">{copy.growthLabels[key]}</span>
                     <span className="growth-value">{year[key]}</span>
                     <span
                       className={`growth-bar ${key}`}

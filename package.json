@@ -7,6 +7,7 @@
   "scripts": {
     "dev": "node scripts/prepare-index.js && vite",
     "build": "node scripts/prepare-index.js && vite build && node scripts/publish-root.js",
+    "optimize:covers": "node scripts/optimize-covers.js",
     "lint": "eslint src scripts vite.config.js",
     "preview": "vite preview"
   },

@@ -16,7 +16,7 @@ export const experienceContent = {
       { title: 'Ndjesi premium', text: 'Dizajn i pastër për hotele dhe shtëpi moderne.' },
     ],
     storyTitle: 'Gjithçka filloi me një vendim të guximshëm',
-    storyText: 'Në vitin 1993, z. Kadri Bajrami vendosi të largohej nga kompania ku punonte dhe t’i përkushtohej një projekti më ambicioz: prodhimit të sustave dhe dyshekëve me cilësi superiore. Produktet e para Feder Bau u krijuan në një garazh të vogël në fshatin Golema Reçicë, Tetovë — me të njëjtën shije dhe mjeshtëri manuale që dallojnë artizanët vendas.',
+    storyText: 'Në vitin 1993, z. Kadri Bajrami vendosi të largohej nga kompania ku punonte dhe t’i përkushtohej një projekti më ambicioz: prodhimit të sustave dhe dyshekëve me cilësi superiore. Produktet e para Feder Bau u krijuan në një garazh të vogël në fshatin e Reçicës së Madhe, në Tetovë — me të njëjtën shije dhe mjeshtëri manuale që dallojnë artizanët vendas.',
     growthText: 'Nga Tetova në të gjithë vendin dhe më pas drejt tregut ndërkombëtar, rritja erdhi në mënyrë të qëndrueshme, organike dhe të durueshme — një hap në një kohë, gjithmonë me vizion të fokusuar në cilësi.',
     secretTitle: 'Sekreti ynë?',
     secretText: 'Pasioni, zemra, dora, shkenca dhe teknologjia — në çdo fazë të punës dhe në çdo moment të kaluar duke planifikuar mirëqenien e njerëzve.',
@@ -44,7 +44,7 @@ export const experienceContent = {
       { value: '2026', label: 'Gjenerata e re' },
     ],
     timeline: [
-      { year: '1993', title: 'Fillimi në Golema Reçicë', text: 'Produktet e para u krijuan në një garazh të vogël me punë dore dhe përkushtim.' },
+      { year: '1993', title: 'Fillimet në Reçicë të Madhe', text: 'Produktet e para u krijuan në një garazh të vogël me punë dore dhe përkushtim.' },
       { year: 'Tetovë', title: 'Rritje në tregun vendor', text: 'Feder Bau u zgjerua në gjithë vendin duke ruajtur standardin e cilësisë.' },
       { year: 'Sot', title: 'Teknologji dhe kapacitet', text: 'Linja moderne e prodhimit mbështet kapacitet të lartë dhe produkte të qëndrueshme.' },
     ],
